@@ -65,7 +65,7 @@ All colors MUST be HSL.
     cursor: none !important;
   }
 
-  /* Show real cursor on modal content and navigation */
+  /* Show real cursor on modal content, navigation, and all interactive elements */
   [data-modal-content],
   [data-modal-content] *,
   [data-navigation],
@@ -74,7 +74,11 @@ All colors MUST be HSL.
   textarea,
   select,
   button,
-  a {
+  a,
+  form,
+  form *,
+  .modal,
+  .modal * {
     cursor: auto !important;
   }
 
@@ -82,17 +86,27 @@ All colors MUST be HSL.
   button,
   [role="button"],
   a,
-  [data-clickable] {
+  [data-clickable],
+  [data-modal-content] button,
+  [data-modal-content] [role="button"],
+  [data-modal-content] a,
+  [data-navigation] button,
+  [data-navigation] [role="button"],
+  [data-navigation] a {
     cursor: pointer !important;
   }
 
   input,
   textarea,
-  [contenteditable] {
+  [contenteditable],
+  [data-modal-content] input,
+  [data-modal-content] textarea,
+  [data-modal-content] [contenteditable] {
     cursor: text !important;
   }
 
-  select {
+  select,
+  [data-modal-content] select {
     cursor: pointer !important;
   }
 }

@@ -45,43 +45,92 @@ const ProjectChatbot: React.FC<ProjectChatbotProps> = ({ isOpen, onClose }) => {
     scrollToBottom();
   }, [messages]);
 
+  const getGreetingResponse = (message: string): string | null => {
+    const lowerMessage = message.toLowerCase();
+    const now = new Date();
+    const hour = now.getHours();
+    
+    if (lowerMessage.includes('bonjour') || lowerMessage.includes('salut') || lowerMessage.includes('hello')) {
+      if (hour < 12) {
+        return "Bonjour ! Ravi de vous rencontrer ce matin. Comment puis-je vous aider avec votre projet ?";
+      } else if (hour < 18) {
+        return "Bonjour ! J'espère que vous passez un bon après-midi. En quoi puis-je vous assister ?";
+      } else {
+        return "Bonsoir ! Merci de me contacter en cette soirée. Quel projet puis-je vous aider à réaliser ?";
+      }
+    }
+    
+    if (lowerMessage.includes('bonsoir')) {
+      return "Bonsoir ! Parfait timing pour discuter de votre projet. Comment puis-je vous aider ?";
+    }
+    
+    if (lowerMessage.includes('bonne nuit') || lowerMessage.includes('au revoir')) {
+      return "Au revoir ! N'hésitez pas à revenir quand vous voulez pour discuter de votre projet. Bonne soirée !";
+    }
+    
+    if (lowerMessage.includes('merci')) {
+      return "De rien ! Je suis là pour vous accompagner dans votre projet. Avez-vous d'autres questions ?";
+    }
+    
+    return null;
+  };
+
   const getBotResponse = (userMessage: string): { text: string; suggestions?: string[] } => {
+    // Vérifier d'abord les salutations
+    const greetingResponse = getGreetingResponse(userMessage);
+    if (greetingResponse) {
+      return {
+        text: greetingResponse,
+        suggestions: ["Site web e-commerce", "Application mobile", "Audit sécurité", "Design UI/UX"]
+      };
+    }
+
     const message = userMessage.toLowerCase();
+    const today = new Date().toLocaleDateString('fr-FR', { 
+      weekday: 'long', 
+      day: 'numeric', 
+      month: 'long' 
+    });
     
     if (message.includes('site') || message.includes('web')) {
       return {
-        text: "Parfait ! Pour un site web, j'ai besoin de quelques détails. S'agit-il d'un site vitrine, e-commerce, ou d'une application web complexe ? Quel est votre secteur d'activité ?",
+        text: `Parfait ! Pour un site web, j'ai besoin de quelques détails. Nous pouvons programmer un rendez-vous dès ${today} pour en discuter. S'agit-il d'un site vitrine, e-commerce, ou d'une application web complexe ?`,
         suggestions: ["Site vitrine", "E-commerce", "Application web", "Blog/Portfolio"]
       };
     } else if (message.includes('mobile') || message.includes('app')) {
       return {
-        text: "Excellent choix ! Pour votre application mobile, voulez-vous cibler iOS, Android, ou les deux ? Avez-vous déjà une idée des fonctionnalités principales ?",
+        text: `Excellent choix ! Pour votre application mobile, nous pouvons planifier une première consultation ${today}. Voulez-vous cibler iOS, Android, ou les deux ?`,
         suggestions: ["iOS seulement", "Android seulement", "Cross-platform", "Je ne sais pas"]
       };
     } else if (message.includes('sécurité') || message.includes('audit')) {
       return {
-        text: "La cybersécurité est cruciale ! Quel type d'audit vous intéresse ? Test de pénétration, audit RGPD, ou sécurisation d'infrastructure ?",
+        text: `La cybersécurité est cruciale ! Nous proposons des rendez-vous d'audit dès ${today}. Quel type d'audit vous intéresse ?`,
         suggestions: ["Pentest", "Audit RGPD", "Sécurisation", "Formation équipe"]
       };
     } else if (message.includes('design') || message.includes('ui') || message.includes('ux')) {
       return {
-        text: "Le design est essentiel ! Avez-vous besoin d'une refonte complète de votre identité visuelle ou plutôt d'optimiser l'expérience utilisateur d'un produit existant ?",
+        text: `Le design est essentiel ! Nous pouvons organiser une session créative dès ${today}. Avez-vous besoin d'une refonte complète ou d'optimiser l'UX ?`,
         suggestions: ["Nouvelle identité", "Refonte UX", "Design system", "Prototypage"]
+      };
+    } else if (message.includes('rendez-vous') || message.includes('rdv') || message.includes('rencontre')) {
+      return {
+        text: `Parfait ! Je peux vous proposer plusieurs créneaux disponibles dès ${today}. Préférez-vous un rendez-vous en présentiel ou en visioconférence ?`,
+        suggestions: ["Présentiel", "Visioconférence", "Voir le planning", "Demain matin"]
       };
     } else if (message.includes('budget') || message.includes('prix') || message.includes('coût')) {
       return {
-        text: "Je comprends l'importance du budget. Nos tarifs varient selon la complexité. Pour vous donner une estimation précise, pouvez-vous me parler de l'envergure de votre projet ?",
+        text: `Je comprends l'importance du budget. Pour vous donner une estimation précise lors de notre rendez-vous ${today}, pouvez-vous me parler de l'envergure de votre projet ?`,
         suggestions: ["Projet simple", "Projet moyen", "Projet complexe", "Demander un devis"]
       };
     } else if (message.includes('délai') || message.includes('temps') || message.includes('rapidement')) {
       return {
-        text: "Concernant les délais, cela dépend de la complexité. Un site vitrine prend 2-4 semaines, une app mobile 2-4 mois. Quel est votre délai idéal ?",
-        suggestions: ["Urgent (1 mois)", "Standard (2-3 mois)", "Flexible", "Voir planning"]
+        text: `Concernant les délais, nous pouvons en discuter lors d'un rendez-vous dès ${today}. Un site vitrine prend 2-4 semaines, une app mobile 2-4 mois. Quel est votre délai idéal ?`,
+        suggestions: ["Urgent (1 mois)", "Standard (2-3 mois)", "Flexible", "Planifier RDV"]
       };
     } else {
       return {
-        text: "Merci pour ces informations ! Basé sur notre discussion, je peux vous recommander de demander un devis personnalisé. Souhaitez-vous que je vous aide à choisir le service le plus adapté ?",
-        suggestions: ["Demander un devis", "Voir nos services", "Autre question", "Prendre RDV"]
+        text: `Merci pour ces informations ! Basé sur notre discussion, je peux organiser un rendez-vous dès ${today} pour approfondir votre projet. Souhaitez-vous que je vous aide à choisir le service le plus adapté ?`,
+        suggestions: ["Planifier RDV", "Voir nos services", "Autre question", "Demander un devis"]
       };
     }
   };
@@ -135,20 +184,20 @@ const ProjectChatbot: React.FC<ProjectChatbotProps> = ({ isOpen, onClose }) => {
       animate={{ opacity: 1 }}
       exit={{ opacity: 0 }}
       className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
-      style={{ cursor: 'auto' }}
       onClick={onClose}
+      data-modal-content
     >
       <motion.div
         initial={{ scale: 0.8, opacity: 0 }}
         animate={{ scale: 1, opacity: 1 }}
         exit={{ scale: 0.8, opacity: 0 }}
         className="bg-white rounded-xl max-w-2xl w-full h-[600px] flex flex-col"
-        style={{ cursor: 'auto' }}
         onClick={(e) => e.stopPropagation()}
+        data-modal-content
       >
         {/* Header */}
-        <div className="flex justify-between items-center p-4 border-b border-gray-200">
-          <div className="flex items-center space-x-3">
+        <div className="flex justify-between items-center p-4 border-b border-gray-200" data-modal-content>
+          <div className="flex items-center space-x-3" data-modal-content>
             <div className="w-10 h-10 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full flex items-center justify-center">
               <Bot size={20} className="text-white" />
             </div>
@@ -160,14 +209,14 @@ const ProjectChatbot: React.FC<ProjectChatbotProps> = ({ isOpen, onClose }) => {
           <button
             onClick={onClose}
             className="text-gray-400 hover:text-black transition-colors p-2"
-            style={{ cursor: 'pointer' }}
+            data-modal-content
           >
             <X size={20} />
           </button>
         </div>
 
         {/* Messages */}
-        <div className="flex-1 overflow-y-auto p-4 space-y-4">
+        <div className="flex-1 overflow-y-auto p-4 space-y-4" data-modal-content>
           {messages.map((message) => (
             <div key={message.id} className={`flex ${message.isBot ? 'justify-start' : 'justify-end'}`}>
               <div className={`max-w-[70%] ${message.isBot ? 'bg-gray-100' : 'bg-blue-600 text-white'} rounded-lg p-3`}>
@@ -184,7 +233,7 @@ const ProjectChatbot: React.FC<ProjectChatbotProps> = ({ isOpen, onClose }) => {
                             key={index}
                             onClick={() => handleSuggestionClick(suggestion)}
                             className="block w-full text-left text-xs bg-white text-blue-600 px-2 py-1 rounded hover:bg-blue-50 transition-colors"
-                            style={{ cursor: 'pointer' }}
+                            data-modal-content
                           >
                             {suggestion}
                           </button>
@@ -216,7 +265,7 @@ const ProjectChatbot: React.FC<ProjectChatbotProps> = ({ isOpen, onClose }) => {
         </div>
 
         {/* Input */}
-        <div className="border-t border-gray-200 p-4">
+        <div className="border-t border-gray-200 p-4" data-modal-content>
           <div className="flex space-x-2">
             <Input
               value={inputMessage}
@@ -224,13 +273,13 @@ const ProjectChatbot: React.FC<ProjectChatbotProps> = ({ isOpen, onClose }) => {
               onKeyPress={handleKeyPress}
               placeholder="Tapez votre message..."
               className="flex-1"
-              style={{ cursor: 'text' }}
+              data-modal-content
             />
             <Button
               onClick={handleSendMessage}
               disabled={!inputMessage.trim()}
               className="bg-blue-600 hover:bg-blue-500"
-              style={{ cursor: 'pointer' }}
+              data-modal-content
             >
               <Send size={16} />
             </Button>

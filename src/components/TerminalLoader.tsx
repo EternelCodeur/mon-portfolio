@@ -9,14 +9,30 @@ interface TerminalLoaderProps {
 const TerminalLoader = ({ onComplete }: TerminalLoaderProps) => {
   const [currentLine, setCurrentLine] = useState(0);
   
+  // Générer la date automatiquement
+  const now = new Date();
+  const today = now.toLocaleDateString('fr-FR', { 
+    weekday: 'long', 
+    year: 'numeric', 
+    month: 'long', 
+    day: 'numeric' 
+  });
+  const time = now.toLocaleTimeString('fr-FR', { 
+    hour: '2-digit', 
+    minute: '2-digit' 
+  });
+  
   const bootSequence = [
     "INITIALIZING SYSTEM...",
+    `DATE: ${today.toUpperCase()}`,
+    `TIME: ${time}`,
     "LOADING NEURAL NETWORKS...",
     "CONNECTING TO MATRIX...",
     "DECRYPTING FIREWALL...",
     "ACCESSING RONN.J DATABASE...",
     "COMPILING PORTFOLIO.EXE...",
-    "SYSTEM READY. WELCOME TO THE MATRIX.",
+    "RENDEZ-VOUS DISPONIBLE DÈS AUJOURD'HUI...",
+    "SYSTÈME PRÊT. BIENVENUE DANS LA MATRICE.",
     ""
   ];
 
@@ -56,7 +72,7 @@ const TerminalLoader = ({ onComplete }: TerminalLoaderProps) => {
           RONN.J
         </motion.div>
         
-        <div className="text-left space-y-2 min-h-[200px]">
+        <div className="text-left space-y-2 min-h-[280px]">
           {bootSequence.slice(0, currentLine + 1).map((line, index) => (
             <motion.div
               key={index}
