@@ -14,10 +14,10 @@ const CustomCursor = () => {
       const newPosition = { x: e.clientX, y: e.clientY };
       setMousePosition(newPosition);
       
-      // Add to trail for smoke effect
+      // Add to trail for red smoke effect
       setTrail(prev => {
         const newTrail = [...prev, { ...newPosition, id: trailId++ }];
-        return newTrail.slice(-15); // Keep only last 15 positions
+        return newTrail.slice(-20); // Keep more positions for better smoke effect
       });
     };
 
@@ -48,7 +48,7 @@ const CustomCursor = () => {
           scale: isClicking ? 2 : 1,
           borderColor: isClicking ? '#ef4444' : '#dc2626',
         }}
-        transition={{ type: 'spring', stiffness: 500, damping: 25 }}
+        transition={{ type: 'spring', stiffness: 800, damping: 20 }}
       />
       
       {/* Center dot */}
@@ -63,14 +63,14 @@ const CustomCursor = () => {
             ? '0 0 20px #ef4444, 0 0 40px #ef4444, 0 0 60px #ef4444'
             : '0 0 10px #ef4444, 0 0 20px #ef4444',
         }}
-        transition={{ type: 'spring', stiffness: 500, damping: 25 }}
+        transition={{ type: 'spring', stiffness: 800, damping: 20 }}
       />
       
       {/* Red smoke trail */}
       {trail.map((pos, index) => (
         <motion.div
           key={pos.id}
-          className="fixed pointer-events-none z-40"
+          className="fixed pointer-events-none z-40 rounded-full blur-sm"
           style={{
             left: pos.x - 8,
             top: pos.y - 8,
@@ -90,10 +90,9 @@ const CustomCursor = () => {
             backgroundColor: '#dc2626',
           }}
           transition={{
-            duration: 1,
+            duration: 0.8,
             ease: "easeOut"
           }}
-          className="rounded-full blur-sm"
         />
       ))}
 
