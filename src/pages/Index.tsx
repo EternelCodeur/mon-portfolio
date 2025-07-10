@@ -8,6 +8,7 @@ import Services from '../components/Services';
 import Contact from '../components/Contact';
 import CustomCursor from '../components/CustomCursor';
 import TerminalLoader from '../components/TerminalLoader';
+import Navigation from '../components/Navigation';
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -24,6 +25,7 @@ const Index = () => {
   return (
     <div className="min-h-screen bg-white text-black font-mono overflow-x-hidden">
       <CustomCursor />
+      <Navigation />
       
       <AnimatePresence>
         {isLoading ? (
@@ -34,11 +36,21 @@ const Index = () => {
             animate={{ opacity: 1 }}
             transition={{ duration: 1 }}
           >
-            <Hero />
-            <About />
-            <Projects />
-            <Services />
-            <Contact />
+            <div id="hero">
+              <Hero />
+            </div>
+            <div id="about">
+              <About />
+            </div>
+            <div id="projects">
+              <Projects />
+            </div>
+            <div id="services">
+              <Services />
+            </div>
+            <div id="contact">
+              <Contact />
+            </div>
           </motion.div>
         )}
       </AnimatePresence>

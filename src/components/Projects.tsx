@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ExternalLink, Github, Play, X, Maximize2 } from 'lucide-react';
@@ -11,14 +10,14 @@ const Projects = () => {
     {
       id: 1,
       title: "CyberShield Pro",
-      category: "Cybersécurité",
+      category: "Cybersécurité", 
       description: "Suite complète de tests de pénétration et d'audit sécurité",
       longDescription: "Application avancée de cybersécurité offrant des outils de pentesting automatisés, analyse de vulnérabilités, et monitoring en temps réel. Interface développée avec React et Python backend.",
       tech: ["React", "Python", "FastAPI", "PostgreSQL", "Docker"],
       image: "/placeholder.svg",
       github: "#",
       demo: "#",
-      video: "https://www.w3schools.com/html/mov_bbb.mp4", // Sample video URL
+      video: "https://www.w3schools.com/html/mov_bbb.mp4",
       status: "Production"
     },
     {
@@ -67,7 +66,7 @@ const Projects = () => {
   };
 
   return (
-    <section className="min-h-screen py-20 px-4 relative bg-white">
+    <section id="projects" className="min-h-screen py-20 px-4 relative bg-white">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -186,6 +185,7 @@ const Projects = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
+              style={{ cursor: 'none' }}
               onClick={() => setSelectedProject(null)}
             >
               <motion.div
@@ -193,6 +193,7 @@ const Projects = () => {
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0.8, opacity: 0 }}
                 className="bg-white border border-gray-200 rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
+                style={{ cursor: 'none' }}
                 onClick={(e) => e.stopPropagation()}
               >
                 {(() => {
@@ -206,6 +207,7 @@ const Projects = () => {
                         <button
                           onClick={() => setSelectedProject(null)}
                           className="text-gray-400 hover:text-black transition-colors"
+                          style={{ cursor: 'none' }}
                         >
                           <X size={24} />
                         </button>
@@ -240,6 +242,7 @@ const Projects = () => {
                                 className="w-full h-64 rounded-lg object-cover"
                                 controls
                                 poster="/placeholder.svg"
+                                style={{ cursor: 'none' }}
                               >
                                 <source src={project.video} type="video/mp4" />
                                 Votre navigateur ne supporte pas la lecture vidéo.
@@ -247,6 +250,7 @@ const Projects = () => {
                               <button
                                 onClick={handleFullscreenToggle}
                                 className="absolute top-2 right-2 bg-black/50 text-white p-2 rounded-lg hover:bg-black/70 transition-colors"
+                                style={{ cursor: 'none' }}
                               >
                                 <Maximize2 size={16} />
                               </button>
@@ -257,6 +261,7 @@ const Projects = () => {
                                 href={project.github}
                                 whileHover={{ scale: 1.05 }}
                                 className="flex-1 bg-gray-800 text-white py-3 px-4 rounded-lg text-center hover:bg-gray-700 transition-colors flex items-center justify-center space-x-2"
+                                style={{ cursor: 'none' }}
                               >
                                 <Github size={20} />
                                 <span>Voir le code</span>
@@ -266,6 +271,7 @@ const Projects = () => {
                                 href={project.demo}
                                 whileHover={{ scale: 1.05 }}
                                 className="flex-1 bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 px-4 rounded-lg text-center hover:from-blue-500 hover:to-purple-500 transition-all flex items-center justify-center space-x-2"
+                                style={{ cursor: 'none' }}
                               >
                                 <ExternalLink size={20} />
                                 <span>Démo live</span>
@@ -290,6 +296,7 @@ const Projects = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               className="fixed inset-0 bg-black z-[60] flex items-center justify-center"
+              style={{ cursor: 'none' }}
               onClick={handleFullscreenToggle}
             >
               {(() => {
@@ -301,6 +308,7 @@ const Projects = () => {
                     <button
                       onClick={handleFullscreenToggle}
                       className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors z-10"
+                      style={{ cursor: 'none' }}
                     >
                       <X size={32} />
                     </button>
@@ -308,6 +316,7 @@ const Projects = () => {
                       className="w-full h-full object-contain"
                       controls
                       autoPlay
+                      style={{ cursor: 'none' }}
                       onClick={(e) => e.stopPropagation()}
                     >
                       <source src={project.video} type="video/mp4" />
