@@ -1,8 +1,15 @@
-import React from 'react';
-import { motion } from 'framer-motion';
+
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
 import { Code2, Smartphone, Shield, Palette, Server, Zap } from 'lucide-react';
+import QuoteForm from './QuoteForm';
+import ProjectChatbot from './ProjectChatbot';
 
 const Services = () => {
+  const [selectedService, setSelectedService] = useState<any>(null);
+  const [showQuoteForm, setShowQuoteForm] = useState(false);
+  const [showChatbot, setShowChatbot] = useState(false);
+
   const services = [
     {
       icon: Code2,
@@ -47,6 +54,15 @@ const Services = () => {
       price: "500€/jour"
     }
   ];
+
+  const handleQuoteRequest = (service: any) => {
+    setSelectedService(service);
+    setShowQuoteForm(true);
+  };
+
+  const handleStartProject = () => {
+    setShowChatbot(true);
+  };
 
   return (
     <section id="services" className="min-h-screen py-20 px-4 bg-white">
@@ -97,19 +113,76 @@ const Services = () => {
 
                 <div className="border-t border-gray-200 pt-6">
                   <div className="text-2xl font-bold text-blue-600 mb-4">{service.price}</div>
-                  <motion.button
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 rounded-lg hover:from-blue-500 hover:to-purple-500 transition-all"
-                  >
-                    Discuter du projet
-                  </motion.button>
+                  <div className="space-y-3">
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      onClick={() => handleQuoteRequest(service)}
+                      className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 rounded-lg hover:from-blue-500 hover:to-purple-500 transition-all"
+                    >
+                      Demander un devis
+                    </motion.button>
+                    <motion.button
+                      whileHover={{ scale: 1.05 }}
+                      whileTap={{ scale: 0.95 }}
+                      onClick={handleStartProject}
+                      className="w-full bg-white text-blue-600 border-2 border-blue-600 py-3 rounded-lg hover:bg-blue-50 transition-all"
+                    >
+                      Démarrer un projet
+                    </motion.button>
+                  </div>
                 </div>
               </div>
             </motion.div>
           ))}
         </div>
+
+        {/* Section CTA globale */}
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8 }}
+          className="text-center mt-16"
+        >
+          <div className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-2xl p-8 text-white">
+            <h3 className="text-3xl font-bold mb-4">Prêt à transformer votre idée en réalité ?</h3>
+            <p className="text-xl mb-6 opacity-90">
+              Discutons de votre projet et trouvons ensemble la solution parfaite
+            </p>
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              onClick={handleStartProject}
+              className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-gray-100 transition-all"
+            >
+              Commencer maintenant
+            </motion.button>
+          </div>
+        </motion.div>
       </div>
+
+      {/* Modals */}
+      <AnimatePresence>
+        {showQuoteForm && selectedService && (
+          <QuoteForm
+            service={selectedService}
+            isOpen={showQuoteForm}
+            onClose={() => {
+              setShowQuoteForm(false);
+              setSelectedService(null);
+            }}
+          />
+        )}
+      </AnimatePresence>
+
+      <AnimatePresence>
+        {showChatbot && (
+          <ProjectChatbot
+            isOpen={showChatbot}
+            onClose={() => setShowChatbot(false)}
+          />
+        )}
+      </AnimatePresence>
     </section>
   );
 };

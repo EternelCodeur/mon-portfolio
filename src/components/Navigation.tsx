@@ -23,7 +23,7 @@ const Navigation = () => {
   };
 
   return (
-    <>
+    <div data-navigation>
       {/* Menu Button */}
       <motion.button
         onClick={() => setIsOpen(!isOpen)}
@@ -42,6 +42,7 @@ const Navigation = () => {
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.8 }}
             className="fixed top-20 right-6 z-[90] bg-white border border-gray-200 rounded-xl shadow-2xl p-4 min-w-[200px]"
+            data-modal-content
           >
             <nav className="space-y-2">
               {menuItems.map((item, index) => (
@@ -75,7 +76,7 @@ const Navigation = () => {
           />
         )}
       </AnimatePresence>
-    </>
+    </div>
   );
 };
 

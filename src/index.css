@@ -60,9 +60,40 @@ All colors MUST be HSL.
     cursor: none;
   }
 
-  /* Hide default cursor */
+  /* Hide default cursor globally but allow it on specific elements */
   * {
     cursor: none !important;
+  }
+
+  /* Show real cursor on modal content and navigation */
+  [data-modal-content],
+  [data-modal-content] *,
+  [data-navigation],
+  [data-navigation] *,
+  input,
+  textarea,
+  select,
+  button,
+  a {
+    cursor: auto !important;
+  }
+
+  /* Specific cursor types for interactive elements */
+  button,
+  [role="button"],
+  a,
+  [data-clickable] {
+    cursor: pointer !important;
+  }
+
+  input,
+  textarea,
+  [contenteditable] {
+    cursor: text !important;
+  }
+
+  select {
+    cursor: pointer !important;
   }
 }
 
