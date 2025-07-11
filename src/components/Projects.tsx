@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ExternalLink, Github, Play, X, Maximize2 } from 'lucide-react';
@@ -14,7 +15,7 @@ const Projects = () => {
       description: "Suite complète de tests de pénétration et d'audit sécurité",
       longDescription: "Application avancée de cybersécurité offrant des outils de pentesting automatisés, analyse de vulnérabilités, et monitoring en temps réel. Interface développée avec React et Python backend.",
       tech: ["React", "Python", "FastAPI", "PostgreSQL", "Docker"],
-      image: "/placeholder.svg",
+      image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&h=600&fit=crop&auto=format",
       github: "#",
       demo: "#",
       video: "https://www.w3schools.com/html/mov_bbb.mp4",
@@ -27,7 +28,7 @@ const Projects = () => {
       description: "Générateur de designs assisté par IA pour interfaces modernes",
       longDescription: "Plateforme révolutionnaire utilisant des modèles de deep learning pour générer automatiquement des interfaces utilisateur optimisées selon les besoins métier.",
       tech: ["Next.js", "TensorFlow.js", "OpenAI API", "Prisma", "Tailwind"],
-      image: "/placeholder.svg",
+      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=600&fit=crop&auto=format",
       github: "#",
       demo: "#",
       video: "https://www.w3schools.com/html/mov_bbb.mp4",
@@ -40,7 +41,7 @@ const Projects = () => {
       description: "Dashboard analytique temps réel avec visualisations 3D",
       longDescription: "Interface de visualisation de données complexes avec rendu 3D, analyses prédictives et intégration multi-sources. Performances optimisées pour le Big Data.",
       tech: ["Vue.js", "Three.js", "D3.js", "Node.js", "MongoDB"],
-      image: "/placeholder.svg",
+      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop&auto=format",
       github: "#",
       demo: "#",
       video: "https://www.w3schools.com/html/mov_bbb.mp4",
@@ -53,7 +54,7 @@ const Projects = () => {
       description: "Explorateur de transactions et analyseur de smart contracts",
       longDescription: "Outil complet d'analyse blockchain permettant l'exploration de transactions, audit de smart contracts et visualisation des flux financiers décentralisés.",
       tech: ["React", "Web3.js", "Solidity", "GraphQL", "TypeScript"],
-      image: "/placeholder.svg",
+      image: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=800&h=600&fit=crop&auto=format",
       github: "#",
       demo: "#",
       video: "https://www.w3schools.com/html/mov_bbb.mp4",
@@ -94,7 +95,13 @@ const Projects = () => {
             >
               <div className="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105">
                 {/* Project Image */}
-                <div className="relative h-48 bg-gradient-to-br from-gray-100 to-gray-200 overflow-hidden">
+                <div className="relative h-48 overflow-hidden cursor-pointer" onClick={() => setSelectedProject(project.id)} data-modal-content>
+                  <img 
+                    src={project.image} 
+                    alt={project.title}
+                    className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
+                    data-modal-content
+                  />
                   <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-500/20"></div>
                   <div className="absolute top-4 right-4">
                     <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
@@ -109,12 +116,17 @@ const Projects = () => {
                   {/* Overlay with play button */}
                   <motion.div
                     className="absolute inset-0 bg-black/60 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                    data-modal-content
                   >
                     <motion.button
                       whileHover={{ scale: 1.1 }}
                       whileTap={{ scale: 0.9 }}
-                      onClick={() => setSelectedProject(project.id)}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setSelectedProject(project.id);
+                      }}
                       className="bg-blue-600 text-white p-4 rounded-full hover:bg-blue-500 transition-colors"
+                      data-modal-content
                     >
                       <Play size={24} />
                     </motion.button>
@@ -156,6 +168,7 @@ const Projects = () => {
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                       className="flex items-center space-x-2 bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition-colors"
+                      data-modal-content
                     >
                       <Github size={16} />
                       <span>Code</span>
@@ -166,6 +179,7 @@ const Projects = () => {
                       whileHover={{ scale: 1.05 }}
                       whileTap={{ scale: 0.95 }}
                       className="flex items-center space-x-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-2 rounded-lg hover:from-blue-500 hover:to-purple-500 transition-all"
+                      data-modal-content
                     >
                       <ExternalLink size={16} />
                       <span>Demo</span>
@@ -241,7 +255,7 @@ const Projects = () => {
                               <video
                                 className="w-full h-64 rounded-lg object-cover"
                                 controls
-                                poster="/placeholder.svg"
+                                poster={project.image}
                                 data-modal-content
                               >
                                 <source src={project.video} type="video/mp4" />
@@ -316,6 +330,7 @@ const Projects = () => {
                       className="w-full h-full object-contain"
                       controls
                       autoPlay
+                      poster={project.image}
                       onClick={(e) => e.stopPropagation()}
                       data-modal-content
                     >
