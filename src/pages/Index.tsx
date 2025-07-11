@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import Hero from '../components/Hero';
@@ -11,6 +10,8 @@ import TerminalLoader from '../components/TerminalLoader';
 import Navigation from '../components/Navigation';
 import StatsSection from '../components/StatsSection';
 import SkillsShowcase from '../components/SkillsShowcase';
+import Footer from '../components/Footer';
+import FloatingContactButton from '../components/FloatingContactButton';
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -55,9 +56,12 @@ const Index = () => {
             <div id="contact">
               <Contact />
             </div>
+            <Footer />
           </motion.div>
         )}
       </AnimatePresence>
+      
+      <FloatingContactButton />
     </div>
   );
 };
