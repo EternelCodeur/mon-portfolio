@@ -9,6 +9,8 @@ import Contact from '../components/Contact';
 import CustomCursor from '../components/CustomCursor';
 import TerminalLoader from '../components/TerminalLoader';
 import Navigation from '../components/Navigation';
+import StatsSection from '../components/StatsSection';
+import SkillsShowcase from '../components/SkillsShowcase';
 
 const Index = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -42,6 +44,8 @@ const Index = () => {
             <div id="about">
               <About />
             </div>
+            <StatsSection />
+            <SkillsShowcase />
             <div id="projects">
               <Projects />
             </div>
