@@ -185,16 +185,16 @@ const Projects = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               className="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 flex items-center justify-center p-4"
-              style={{ cursor: 'none' }}
               onClick={() => setSelectedProject(null)}
+              data-modal-content
             >
               <motion.div
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0.8, opacity: 0 }}
                 className="bg-white border border-gray-200 rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
-                style={{ cursor: 'none' }}
                 onClick={(e) => e.stopPropagation()}
+                data-modal-content
               >
                 {(() => {
                   const project = projects.find(p => p.id === selectedProject);
@@ -202,20 +202,20 @@ const Projects = () => {
                   
                   return (
                     <>
-                      <div className="flex justify-between items-center p-6 border-b border-gray-200">
+                      <div className="flex justify-between items-center p-6 border-b border-gray-200" data-modal-content>
                         <h3 className="text-2xl font-bold text-black">{project.title}</h3>
                         <button
                           onClick={() => setSelectedProject(null)}
                           className="text-gray-400 hover:text-black transition-colors"
-                          style={{ cursor: 'none' }}
+                          data-modal-content
                         >
                           <X size={24} />
                         </button>
                       </div>
                       
-                      <div className="p-6">
+                      <div className="p-6" data-modal-content>
                         <div className="grid md:grid-cols-2 gap-8">
-                          <div className="space-y-6">
+                          <div className="space-y-6" data-modal-content>
                             <div>
                               <h4 className="text-lg font-semibold text-black mb-3">Description complète</h4>
                               <p className="text-gray-700 leading-relaxed">{project.longDescription}</p>
@@ -236,13 +236,13 @@ const Projects = () => {
                             </div>
                           </div>
                           
-                          <div className="space-y-4">
+                          <div className="space-y-4" data-modal-content>
                             <div className="relative">
                               <video
                                 className="w-full h-64 rounded-lg object-cover"
                                 controls
                                 poster="/placeholder.svg"
-                                style={{ cursor: 'none' }}
+                                data-modal-content
                               >
                                 <source src={project.video} type="video/mp4" />
                                 Votre navigateur ne supporte pas la lecture vidéo.
@@ -250,18 +250,18 @@ const Projects = () => {
                               <button
                                 onClick={handleFullscreenToggle}
                                 className="absolute top-2 right-2 bg-black/50 text-white p-2 rounded-lg hover:bg-black/70 transition-colors"
-                                style={{ cursor: 'none' }}
+                                data-modal-content
                               >
                                 <Maximize2 size={16} />
                               </button>
                             </div>
                             
-                            <div className="flex space-x-4">
+                            <div className="flex space-x-4" data-modal-content>
                               <motion.a
                                 href={project.github}
                                 whileHover={{ scale: 1.05 }}
                                 className="flex-1 bg-gray-800 text-white py-3 px-4 rounded-lg text-center hover:bg-gray-700 transition-colors flex items-center justify-center space-x-2"
-                                style={{ cursor: 'none' }}
+                                data-modal-content
                               >
                                 <Github size={20} />
                                 <span>Voir le code</span>
@@ -271,7 +271,7 @@ const Projects = () => {
                                 href={project.demo}
                                 whileHover={{ scale: 1.05 }}
                                 className="flex-1 bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 px-4 rounded-lg text-center hover:from-blue-500 hover:to-purple-500 transition-all flex items-center justify-center space-x-2"
-                                style={{ cursor: 'none' }}
+                                data-modal-content
                               >
                                 <ExternalLink size={20} />
                                 <span>Démo live</span>
@@ -296,8 +296,8 @@ const Projects = () => {
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
               className="fixed inset-0 bg-black z-[60] flex items-center justify-center"
-              style={{ cursor: 'none' }}
               onClick={handleFullscreenToggle}
+              data-modal-content
             >
               {(() => {
                 const project = projects.find(p => p.id === selectedProject);
@@ -308,7 +308,7 @@ const Projects = () => {
                     <button
                       onClick={handleFullscreenToggle}
                       className="absolute top-4 right-4 text-white hover:text-gray-300 transition-colors z-10"
-                      style={{ cursor: 'none' }}
+                      data-modal-content
                     >
                       <X size={32} />
                     </button>
@@ -316,8 +316,8 @@ const Projects = () => {
                       className="w-full h-full object-contain"
                       controls
                       autoPlay
-                      style={{ cursor: 'none' }}
                       onClick={(e) => e.stopPropagation()}
+                      data-modal-content
                     >
                       <source src={project.video} type="video/mp4" />
                       Votre navigateur ne supporte pas la lecture vidéo.
