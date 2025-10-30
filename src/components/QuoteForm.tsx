@@ -152,10 +152,12 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ service, isOpen, onClose }) => {
                 data-modal-content
               >
                 <option value="">Sélectionner un budget</option>
-                <option value="< 5000€">Moins de 5 000€</option>
-                <option value="5000-15000€">5 000€ - 15 000€</option>
-                <option value="15000-30000€">15 000€ - 30 000€</option>
-                <option value="> 30000€">Plus de 30 000€</option>
+                <option value="Moins de 300 000 FCFA">Moins de 300 000 FCFA</option>
+                <option value="300 000 FCFA - 500 000 FCFA">300 000 FCFA - 500 000 FCFA</option>
+                <option value="500 000 FCFA - 1 000 000 FCFA">500 000 FCFA - 1 000 000 FCFA</option>
+                <option value="1 000 000 FCFA - 2 000 000 FCFA">1 000 000 FCFA - 2 000 000 FCFA</option>
+                <option value="2 000 000 FCFA - 5 000 000 FCFA">2 000 000 FCFA - 5 000 000 FCFA</option>
+                <option value="5 000 000 FCFA - 10 000 000 FCFA">5 000 000 FCFA - 10 000 000 FCFA</option>
                 <option value="À discuter">À discuter</option>
               </select>
             </div>
@@ -171,10 +173,10 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ service, isOpen, onClose }) => {
                 data-modal-content
               >
                 <option value="">Sélectionner un délai</option>
-                <option value="< 1 mois">Moins d'1 mois</option>
-                <option value="1-3 mois">1 à 3 mois</option>
-                <option value="3-6 mois">3 à 6 mois</option>
-                <option value="> 6 mois">Plus de 6 mois</option>
+                <option value="Moins d'1 mois">Moins d'1 mois</option>
+                <option value="1 à 3 mois">1 à 3 mois</option>
+                <option value="3 à 6 mois">3 à 6 mois</option>
+                <option value="Plus de 6 mois">Plus de 6 mois</option>
                 <option value="Flexible">Flexible</option>
               </select>
             </div>
@@ -195,13 +197,6 @@ const QuoteForm: React.FC<QuoteFormProps> = ({ service, isOpen, onClose }) => {
               className="resize-none"
               data-modal-content
             />
-          </div>
-
-          {/* Service Details */}
-          <div className="bg-gray-50 rounded-lg p-4" data-modal-content>
-            <h4 className="font-semibold text-gray-800 mb-2">Service sélectionné :</h4>
-            <p className="text-sm text-gray-600 mb-2">{service.description}</p>
-            <p className="text-lg font-bold text-blue-600">{service.price}</p>
           </div>
 
           {/* Submit Button */}

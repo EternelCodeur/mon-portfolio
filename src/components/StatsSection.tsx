@@ -8,14 +8,14 @@ const StatsSection = () => {
   const stats = [
     {
       icon: Code,
-      value: 150,
+      value: 15,
       suffix: '+',
       label: 'Projets Réalisés',
       description: 'Applications développées avec succès'
     },
     {
       icon: Users,
-      value: 50,
+      value: 5,
       suffix: '+',
       label: 'Clients Satisfaits',
       description: 'Entreprises qui nous font confiance'
@@ -29,7 +29,7 @@ const StatsSection = () => {
     },
     {
       icon: Award,
-      value: 5,
+      value: 3,
       suffix: '',
       label: 'Années d\'Expérience',
       description: 'Dans le développement web'
@@ -52,7 +52,7 @@ const StatsSection = () => {
           transition={{ duration: 1 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold text-black mb-4">
+          <h2 className="text-3xl font-bold text-black mb-4">
             Quelques Chiffres Impressionnants
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto"></div>

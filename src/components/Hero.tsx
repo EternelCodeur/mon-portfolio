@@ -3,31 +3,12 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Terminal, Code, Zap } from 'lucide-react';
 import TypingEffect from './TypingEffect';
-import ParticleBackground from './ParticleBackground';
+import AnimatedBackground from './AnimatedBackground';
 
 const Hero = () => {
   return (
-    <section id="hero" className="min-h-screen flex items-center justify-center relative bg-white px-4 overflow-hidden">
-      {/* Background effects */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 to-purple-50 opacity-50"></div>
-      <ParticleBackground />
-      
-      <div className="relative z-10 text-center max-w-6xl mx-auto">
-        {/* Profile photo */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.8 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8 }}
-          className="mb-8"
-        >
-          <div className="w-32 h-32 mx-auto rounded-full overflow-hidden border-4 border-gradient-to-r from-blue-600 to-purple-600 shadow-2xl">
-            <img 
-              src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=400&fit=crop&crop=face" 
-              alt="RONN.J Profile" 
-              className="w-full h-full object-cover"
-            />
-          </div>
-        </motion.div>
+    <AnimatedBackground className="flex items-center justify-center px-4">
+      <div className="text-center max-w-6xl mx-auto">
 
         {/* Animated title with typing effect */}
         <motion.div
@@ -37,7 +18,7 @@ const Hero = () => {
           className="mb-8"
         >
           <div className="glitch-wrapper">
-            <div className="glitch text-6xl md:text-8xl font-bold text-black mb-4" data-glitch="RONN.J">
+            <div className="glitch text-7xl md:text-8xl font-bold text-black mb-4" data-glitch="RONN.J">
               <TypingEffect text="RONN.J" speed={150} />
             </div>
           </div>
@@ -50,7 +31,7 @@ const Hero = () => {
           transition={{ duration: 1, delay: 1.3 }}
           className="mb-12"
         >
-          <h2 className="text-3xl md:text-4xl font-bold text-black mb-6">
+          <h2 className="text-3xl md:text-3xl font-bold text-black mb-6">
             <TypingEffect 
               text="Développeur Full Stack & Spécialiste IT" 
               speed={80}
@@ -60,7 +41,7 @@ const Hero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 3 }}
-            className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed"
+            className="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed"
           >
             Je crée des expériences numériques exceptionnelles alliant <span className="text-blue-600 font-semibold">technologie de pointe</span>, 
             <span className="text-purple-600 font-semibold"> design innovant</span> et 
@@ -82,7 +63,7 @@ const Hero = () => {
           ].map((item, index) => (
             <motion.div
               key={item.label}
-              className={`relative flex flex-col items-center p-6 bg-white rounded-xl shadow-lg border border-gray-200 hover:shadow-2xl transition-all duration-300 ${item.color} group`}
+              className={`relative w-40 flex flex-col items-center p-6 bg-white rounded-xl shadow-lg border border-gray-200 hover:shadow-2xl transition-all duration-300 ${item.color} group`}
               whileHover={{ 
                 scale: 1.1, 
                 y: -10,
@@ -126,7 +107,7 @@ const Hero = () => {
           </motion.button>
         </motion.div>
       </div>
-    </section>
+    </AnimatedBackground>
   );
 };
 

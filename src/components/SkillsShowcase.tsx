@@ -7,19 +7,20 @@ const SkillsShowcase = () => {
     {
       title: 'Frontend',
       skills: [
-        { name: 'React', level: 95, color: 'from-blue-500 to-blue-600' },
-        { name: 'TypeScript', level: 90, color: 'from-blue-600 to-indigo-600' },
-        { name: 'Next.js', level: 88, color: 'from-gray-700 to-gray-800' },
-        { name: 'Tailwind CSS', level: 92, color: 'from-cyan-500 to-teal-500' }
+        { name: 'React', level: 98, color: 'from-blue-500 to-blue-600' },
+        { name: 'TypeScript', level: 80, color: 'from-yellow-500 to-orange-700' },
+        { name: 'Angular', level: 70, color: 'from-gray-700 to-gray-800' },
+        { name: 'Tailwind CSS', level: 95, color: 'from-cyan-500 to-teal-500' }
       ]
     },
     {
       title: 'Backend',
       skills: [
-        { name: 'Node.js', level: 87, color: 'from-green-500 to-green-600' },
-        { name: 'Python', level: 85, color: 'from-yellow-500 to-orange-500' },
-        { name: 'PostgreSQL', level: 82, color: 'from-blue-700 to-blue-800' },
-        { name: 'MongoDB', level: 80, color: 'from-green-600 to-green-700' }
+        { name: 'Node.js', level: 50, color: 'from-green-500 to-green-600' },
+        { name: 'Python', level: 70, color: 'from-yellow-500 to-orange-500' },
+        { name: 'PHP', level:  98, color: 'from-gray-500 to-gray-600' },
+        { name: 'PostgreSQL', level: 80, color: 'from-blue-700 to-blue-800' },
+        { name: 'MySQL', level: 95, color: 'from-red-500 to-red-600' },
       ]
     },
     {
@@ -28,7 +29,7 @@ const SkillsShowcase = () => {
         { name: 'Docker', level: 85, color: 'from-blue-500 to-blue-700' },
         { name: 'AWS', level: 78, color: 'from-orange-500 to-orange-600' },
         { name: 'Git', level: 93, color: 'from-red-500 to-red-600' },
-        { name: 'Linux', level: 80, color: 'from-gray-600 to-gray-700' }
+        { name: 'Kali Linux', level: 80, color: 'from-gray-600 to-gray-700' }
       ]
     }
   ];
@@ -46,7 +47,7 @@ const SkillsShowcase = () => {
             Expertise Technique
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mb-6"></div>
-          <p className="text-xl text-gray-600 max-w-3xl mx-auto">
+          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
             Maîtrise complète des technologies modernes pour créer des solutions innovantes
           </p>
         </motion.div>
@@ -60,7 +61,7 @@ const SkillsShowcase = () => {
               transition={{ duration: 0.8, delay: categoryIndex * 0.2 }}
               className="bg-gray-50 rounded-xl p-8 hover:shadow-lg transition-shadow"
             >
-              <h3 className="text-2xl font-bold text-gray-800 mb-8 text-center">
+              <h3 className="text-xl font-bold text-gray-800 mb-8 text-center">
                 {category.title}
               </h3>
               

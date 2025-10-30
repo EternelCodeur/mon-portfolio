@@ -10,9 +10,9 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: "CyberShield Pro",
-      category: "Cybersécurité", 
-      description: "Suite complète de tests de pénétration et d'audit sécurité",
+      title: "Chat Training",
+      category: "Application Web", 
+      description: "Application de Chat pour un Client",
       longDescription: "Application avancée de cybersécurité offrant des outils de pentesting automatisés, analyse de vulnérabilités, et monitoring en temps réel. Interface développée avec React et Python backend.",
       tech: ["React", "Python", "FastAPI", "PostgreSQL", "Docker"],
       image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&h=600&fit=crop&auto=format",
@@ -67,7 +67,7 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="min-h-screen py-20 px-4 relative bg-white">
+    <section id="projects" className="min-h-screen py-0 px-4 relative bg-white">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -75,11 +75,11 @@ const Projects = () => {
           transition={{ duration: 1 }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl font-bold text-black mb-6">
+          <h2 className="text-4xl font-bold text-black mb-6">
             MES CRÉATIONS
           </h2>
           <div className="w-32 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mb-8"></div>
-          <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+          <p className="text-lg text-gray-700 max-w-3xl mx-auto">
             Découvrez mes projets les plus innovants, alliant technologie de pointe et design futuriste
           </p>
         </motion.div>
@@ -136,16 +136,16 @@ const Projects = () => {
                 {/* Project Info */}
                 <div className="p-6">
                   <div className="flex items-center justify-between mb-3">
-                    <span className="text-blue-600 text-sm font-semibold uppercase tracking-wider">
+                    <span className="text-blue-600 text-md font-semibold uppercase tracking-wider">
                       {project.category}
                     </span>
                   </div>
                   
-                  <h3 className="text-2xl font-bold text-black mb-3 group-hover:text-blue-600 transition-colors">
+                  <h3 className="text-md font-bold text-black mb-3 group-hover:text-blue-600 transition-colors">
                     {project.title}
                   </h3>
                   
-                  <p className="text-gray-600 mb-4 leading-relaxed">
+                  <p className="text-gray-600 text-sm mb-4 leading-relaxed">
                     {project.description}
                   </p>
 
@@ -217,7 +217,7 @@ const Projects = () => {
                   return (
                     <>
                       <div className="flex justify-between items-center p-6 border-b border-gray-200" data-modal-content>
-                        <h3 className="text-2xl font-bold text-black">{project.title}</h3>
+                        <h3 className="text-xl font-bold text-black">{project.title}</h3>
                         <button
                           onClick={() => setSelectedProject(null)}
                           className="text-gray-400 hover:text-black transition-colors"
@@ -231,13 +231,13 @@ const Projects = () => {
                         <div className="grid md:grid-cols-2 gap-8">
                           <div className="space-y-6" data-modal-content>
                             <div>
-                              <h4 className="text-lg font-semibold text-black mb-3">Description complète</h4>
-                              <p className="text-gray-700 leading-relaxed">{project.longDescription}</p>
+                              <h4 className="text-md font-semibold text-black mb-3">Description complète</h4>
+                              <p className="text-gray-700 text-sm leading-relaxed">{project.longDescription}</p>
                             </div>
                             
                             <div>
-                              <h4 className="text-lg font-semibold text-black mb-3">Technologies utilisées</h4>
-                              <div className="flex flex-wrap gap-2">
+                              <h4 className="text-md font-semibold text-black mb-3">Technologies utilisées</h4>
+                              <div className="flex flex-wrap gap-2 text-sm">
                                 {project.tech.map((tech, index) => (
                                   <span
                                     key={index}

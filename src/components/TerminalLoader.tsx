@@ -26,11 +26,11 @@ const TerminalLoader = ({ onComplete }: TerminalLoaderProps) => {
     "INITIALIZING SYSTEM...",
     `DATE: ${today.toUpperCase()}`,
     `TIME: ${time}`,
-    "LOADING NEURAL NETWORKS...",
-    "CONNECTING TO MATRIX...",
-    "DECRYPTING FIREWALL...",
-    "ACCESSING RONN.J DATABASE...",
-    "COMPILING PORTFOLIO.EXE...",
+    "CHARGEMENT DU RÉSEAU...",
+    "CONNEXION À LA MATRICE...",
+    "DÉCRYPTAGE DU PARE-FEU...",
+    "ACCÈS À LA BASE DE DONNÉES RONN.J...",
+    "COMPILATION DU PORTFOLIO.EXE...",
     "RENDEZ-VOUS DISPONIBLE DÈS AUJOURD'HUI...",
     "SYSTÈME PRÊT. BIENVENUE DANS LA MATRICE.",
     ""
@@ -41,12 +41,12 @@ const TerminalLoader = ({ onComplete }: TerminalLoaderProps) => {
       setCurrentLine(prev => {
         if (prev >= bootSequence.length - 1) {
           clearInterval(timer);
-          setTimeout(onComplete, 1000);
+          setTimeout(onComplete, 3000);
           return prev;
         }
         return prev + 1;
       });
-    }, 400);
+    }, 300);
 
     return () => clearInterval(timer);
   }, [onComplete]);

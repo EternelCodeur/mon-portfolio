@@ -1,17 +1,22 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Brain, Shield, Palette, Server } from 'lucide-react';
+import { Shield, Palette, Server, Monitor, Brush, Wrench, HeadphonesIcon, Code } from 'lucide-react';
+import AnimatedBackground from './AnimatedBackground';
 
 const About = () => {
   const skills = [
-    { icon: Brain, title: "Intelligence Artificielle", desc: "Machine Learning, Deep Learning, NLP" },
-    { icon: Shield, title: "Cybersécurité", desc: "Tests de pénétration, Audit sécurité" },
+    { icon: HeadphonesIcon, title: "Consulting IT", desc: "Conseil et stratégie informatique sur mesure" },
+    { icon: Brush, title: "Design Graphique", desc: "Conception de logos, chartes graphiques,affiches, flyers, cartes" },
     { icon: Palette, title: "Design UI/UX", desc: "Interfaces modernes, Expérience utilisateur" },
-    { icon: Server, title: "Architecture", desc: "Microservices, Cloud, DevOps" }
+    { icon: Server, title: "Solutions Cloud", desc: "Migration Cloud, DevOps,hébergement et sauvegarde sécurisée" },
+    { icon: Monitor, title: "Support Informatique", desc: "Assistance technique complète pour entreprises" },
+    { icon: Wrench, title: "Maintenance & Réparation", desc: "Réparation et maintenance de matériel informatique" },
+    { icon: Shield, title: "Audit de sécurité d'applications", desc: "Analyse et renforcement de la sécurité des applications web et mobiles" },
+    { icon: Code, title: "Developpement d'API REST", desc: "Developpement et mise en place d'API REST FULL Robuste" },
   ];
 
   return (
-    <section id="about" className="min-h-screen py-20 px-4 bg-gray-50">
+    <AnimatedBackground id="about" className="py-10 px-4">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -19,11 +24,11 @@ const About = () => {
           transition={{ duration: 1 }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl font-bold text-black mb-6">
+          <h2 className="text-4xl font-bold text-black mb-3">
             QUI SUIS-JE ?
           </h2>
           <div className="w-32 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mb-8"></div>
-          <p className="text-xl text-gray-700 max-w-4xl mx-auto leading-relaxed">
+          <p className="text-lg text-gray-700 max-w-4xl mx-auto leading-relaxed">
             Passionné par l'innovation technologique, je transforme vos idées en solutions digitales performantes. 
             Mon approche allie expertise technique et vision créative pour créer des expériences utilisateur exceptionnelles.
           </p>
@@ -39,10 +44,12 @@ const About = () => {
             <div className="w-80 h-80 mx-auto relative">
               <div className="absolute inset-0 bg-gradient-to-r from-blue-500 to-purple-600 rounded-full animate-pulse opacity-20"></div>
               <div className="absolute inset-4 bg-gradient-to-r from-cyan-400 to-blue-500 rounded-full animate-spin-slow opacity-30"></div>
-              <div className="absolute inset-8 bg-white rounded-full flex items-center justify-center shadow-2xl">
-                <div className="text-6xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
-                  R.J
-                </div>
+              <div className="absolute inset-0 bg-white rounded-full overflow-hidden shadow-2xl">
+                <img 
+                  src="assets/profile.jpg" 
+                  alt="RONN.J Profile" 
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
           </motion.div>
@@ -56,8 +63,8 @@ const About = () => {
             <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
               <h3 className="text-2xl font-bold text-black mb-4">Mon Parcours</h3>
               <p className="text-gray-700 leading-relaxed">
-                Plus de 8 ans d'expérience dans le développement full-stack et la cybersécurité. 
-                J'ai accompagné des startups et grandes entreprises dans leur transformation digitale, 
+                Plus de 3 ans d'expérience dans le développement full-stack et la sécurité informatique. 
+                J'ai accompagné des startups et entreprises dans leur transformation digitale, 
                 en créant des solutions robustes et sécurisées.
               </p>
             </div>
@@ -72,7 +79,7 @@ const About = () => {
           </motion.div>
         </div>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {skills.map((skill, index) => (
             <motion.div
               key={skill.title}
@@ -90,7 +97,7 @@ const About = () => {
           ))}
         </div>
       </div>
-    </section>
+    </AnimatedBackground>
   );
 };
 

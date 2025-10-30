@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Send, Github, Linkedin, Twitter } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, Github, Linkedin } from 'lucide-react';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -24,19 +24,18 @@ const Contact = () => {
   };
 
   const contactInfo = [
-    { icon: Mail, label: "Email", value: "ronn@example.com", href: "mailto:ronn@example.com" },
-    { icon: Phone, label: "Téléphone", value: "+33 6 12 34 56 78", href: "tel:+33612345678" },
-    { icon: MapPin, label: "Localisation", value: "Paris, France", href: "#" }
+    { icon: Mail, label: "Email", value: "eternelcodeur@gmail.com", href: "mailto:eternelcodeur@gmail.com" },
+    { icon: Phone, label: "Téléphone", value: "+241 74 63 95 07", href: "tel:+24174639507" },
+    { icon: MapPin, label: "Localisation", value: "Libreville, Gabon", href: "#" }
   ];
 
   const socialLinks = [
-    { icon: Github, href: "#", label: "GitHub" },
-    { icon: Linkedin, href: "#", label: "LinkedIn" },
-    { icon: Twitter, href: "#", label: "Twitter" }
+    { icon: Github, href: "https://github.com/EternelCodeur", label: "GitHub" },
+    { icon: Linkedin, href: "https://www.linkedin.com/in/ronn-joxy-gnossigui-nguia-14b509336/", label: "LinkedIn" },
   ];
 
   return (
-    <section id="contact" className="min-h-screen py-20 px-4 bg-gray-50">
+    <section id="contact" className="min-h-screen py-10 px-4 bg-gray-50">
       <div className="max-w-7xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -44,16 +43,16 @@ const Contact = () => {
           transition={{ duration: 1 }}
           className="text-center mb-16"
         >
-          <h2 className="text-5xl font-bold text-black mb-6">
+          <h2 className="text-4xl font-bold text-black mb-6">
             CONTACTEZ-MOI
           </h2>
           <div className="w-32 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mb-8"></div>
-          <p className="text-xl text-gray-700 max-w-3xl mx-auto">
+          <p className="text-lg text-gray-700 max-w-3xl mx-auto">
             Prêt à donner vie à votre projet ? Discutons de vos besoins et créons quelque chose d'exceptionnel ensemble.
           </p>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-16">
+        <div className="grid md:grid-cols-2 gap-8">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -61,7 +60,7 @@ const Contact = () => {
             className="space-y-8"
           >
             <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-200">
-              <h3 className="text-2xl font-bold text-black mb-6">Informations de contact</h3>
+              <h3 className="text-xl font-bold text-black mb-6">Informations de contact</h3>
               
               <div className="space-y-6">
                 {contactInfo.map((info, index) => (
@@ -86,7 +85,7 @@ const Contact = () => {
             </div>
 
             <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-200">
-              <h3 className="text-2xl font-bold text-black mb-6">Suivez-moi</h3>
+              <h3 className="text-xl font-bold text-black mb-6">Suivez-moi</h3>
               <div className="flex space-x-4">
                 {socialLinks.map((social, index) => (
                   <motion.a
@@ -111,7 +110,7 @@ const Contact = () => {
             transition={{ duration: 1 }}
           >
             <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-200">
-              <h3 className="text-2xl font-bold text-black mb-6">Envoyez-moi un message</h3>
+              <h3 className="text-xl font-bold text-black mb-6">Envoyez-moi un message</h3>
               
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">

@@ -46,7 +46,7 @@ const CustomCursor = () => {
         }}
         animate={{
           scale: isClicking ? 2 : 1,
-          borderColor: isClicking ? '#ef4444' : '#dc2626',
+          borderColor: isClicking ? '#d5d3d3ff' : '#d5d3d3ff',
         }}
         transition={{ type: 'spring', stiffness: 800, damping: 20 }}
       />
@@ -60,8 +60,8 @@ const CustomCursor = () => {
         }}
         animate={{
           boxShadow: isClicking 
-            ? '0 0 20px #ef4444, 0 0 40px #ef4444, 0 0 60px #ef4444'
-            : '0 0 10px #ef4444, 0 0 20px #ef4444',
+            ? '0 0 20px #d5d3d3ff, 0 0 40px #d5d3d3ff, 0 0 60px #d5d3d3ff'
+            : '0 0 10px #d5d3d3ff, 0 0 20px #d5d3d3ff',
         }}
         transition={{ type: 'spring', stiffness: 800, damping: 20 }}
       />
@@ -80,14 +80,14 @@ const CustomCursor = () => {
             height: 16,
             opacity: 0.8,
             scale: 1,
-            backgroundColor: '#ef4444',
+            backgroundColor: '#d5d3d3ff',
           }}
           animate={{
             width: 32,
             height: 32,
             opacity: 0,
             scale: 2,
-            backgroundColor: '#dc2626',
+            backgroundColor: '#d5d3d3ff',
           }}
           transition={{
             duration: 0.8,

@@ -11,31 +11,31 @@ const FloatingContactButton = () => {
       icon: MessageSquare,
       label: 'WhatsApp',
       color: 'bg-green-500 hover:bg-green-600',
-      action: () => window.open('https://wa.me/33XXXXXXXXX?text=Bonjour, je souhaite discuter d\'un projet', '_blank')
+      action: () => window.open('https://wa.me/24174639507?text=Bonjour, je souhaite discuter d\'un projet', '_blank')
     },
     {
       icon: MessageCircle,
       label: 'SMS',
       color: 'bg-blue-500 hover:bg-blue-600',
-      action: () => window.open('sms:+33XXXXXXXXX?body=Bonjour, je souhaite discuter d\'un projet')
+      action: () => window.open('sms:+24174639507?body=Bonjour, je souhaite discuter d\'un projet')
     },
     {
       icon: Phone,
       label: 'Appel',
       color: 'bg-emerald-500 hover:bg-emerald-600',
-      action: () => window.open('tel:+33XXXXXXXXX')
+      action: () => window.open('tel:+24174639507')
     },
     {
       icon: Linkedin,
       label: 'LinkedIn',
       color: 'bg-blue-600 hover:bg-blue-700',
-      action: () => window.open('https://linkedin.com/in/votre-profil', '_blank')
+      action: () => window.open('https://linkedin.com/in/ronn-joxy-gnossigui-nguia-14b509336', '_blank')
     },
     {
       icon: Mail,
       label: 'Email',
       color: 'bg-purple-500 hover:bg-purple-600',
-      action: () => window.open('mailto:contact@ronnj.dev?subject=Demande de contact&body=Bonjour, je souhaite discuter d\'un projet')
+      action: () => window.open('mailto:eternelcodeur@gmail.com?subject=Demande de contact&body=Bonjour, je souhaite discuter d\'un projet')
     }
   ];
 
