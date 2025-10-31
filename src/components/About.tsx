@@ -25,7 +25,7 @@ const About = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl font-bold text-black mb-3">
-         
+            QUI SUIS-JE ?
           </h2>
           <div className="w-32 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mb-8"></div>
           <p className="text-lg text-gray-700 max-w-4xl mx-auto leading-relaxed">
