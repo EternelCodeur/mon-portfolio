@@ -35,8 +35,8 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="min-h-screen py-10 px-4 bg-gray-50">
-      <div className="max-w-7xl mx-auto">
+    <section id="contact" className="min-h-screen py-10 bg-gray-50 overflow-x-hidden overflow-hidden">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl w-full">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -52,14 +52,14 @@ const Contact = () => {
           </p>
         </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-8">
+        <div className="grid md:grid-cols-2 gap-8 overflow-x-clip w-full">
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 1 }}
-            className="space-y-8"
+            className="space-y-8 min-w-0 overflow-x-clip w-full"
           >
-            <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-200">
+            <div className="bg-white w-full max-w-full p-6 md:p-8 rounded-xl shadow-lg border border-gray-200 overflow-hidden box-border">
               <h3 className="text-xl font-bold text-black mb-6">Informations de contact</h3>
               
               <div className="space-y-6">
@@ -67,26 +67,26 @@ const Contact = () => {
                   <motion.a
                     key={info.label}
                     href={info.href}
-                    className="flex items-center space-x-4 p-4 rounded-lg hover:bg-gray-50 transition-colors group"
+                    className="flex items-center space-x-4 p-2 rounded-lg hover:bg-gray-50 transition-colors group"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.1 }}
                   >
-                    <div className="w-12 h-12 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
-                      <info.icon size={24} className="text-white" />
+                    <div className="w-8 h-8 bg-gradient-to-r from-blue-500 to-purple-600 rounded-lg flex items-center justify-center group-hover:scale-110 transition-transform">
+                      <info.icon size={16} className="text-white" />
                     </div>
                     <div>
                       <p className="font-semibold text-gray-800">{info.label}</p>
-                      <p className="text-gray-600">{info.value}</p>
+                      <p className="text-gray-600 break-words">{info.value}</p>
                     </div>
                   </motion.a>
                 ))}
               </div>
             </div>
 
-            <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-200">
+            <div className="bg-white w-full max-w-full p-6 md:p-8 rounded-xl shadow-lg border border-gray-200 box-border">
               <h3 className="text-xl font-bold text-black mb-6">Suivez-moi</h3>
-              <div className="flex space-x-4">
+              <div className="flex flex-wrap gap-4">
                 {socialLinks.map((social, index) => (
                   <motion.a
                     key={social.label}
@@ -108,8 +108,9 @@ const Contact = () => {
             initial={{ opacity: 0, x: 50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 1 }}
+            className="min-w-0 overflow-x-clip w-full"
           >
-            <div className="bg-white p-8 rounded-xl shadow-lg border border-gray-200">
+            <div className="bg-white w-full max-w-full p-6 md:p-8 rounded-xl shadow-lg border border-gray-200 overflow-hidden box-border">
               <h3 className="text-xl font-bold text-black mb-6">Envoyez-moi un message</h3>
               
               <form onSubmit={handleSubmit} className="space-y-6">

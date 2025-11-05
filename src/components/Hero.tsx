@@ -15,7 +15,7 @@ const Hero = () => {
           initial={{ opacity: 0, y: -50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 1, delay: 0.3 }}
-          className="mb-8"
+          className="mb-8 mt-8 md:mt-0"
         >
           <div className="glitch-wrapper">
             <div className="glitch text-7xl md:text-8xl font-bold text-black mb-4" data-glitch="RONN.J">
