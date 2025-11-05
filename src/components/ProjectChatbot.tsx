@@ -153,7 +153,7 @@ const ProjectChatbot: React.FC<ProjectChatbotProps> = ({ isOpen, onClose }) => {
         <div className="flex-1 overflow-y-auto p-4 space-y-4" data-modal-content>
           {messages.map((message) => (
             <div key={message.id} className={`flex ${message.isBot ? 'justify-start' : 'justify-end'}`}>
-              <div className={`max-w-[70%] ${message.isBot ? 'bg-gray-100' : 'bg-blue-600 text-white'} rounded-lg p-3`}>
+              <div className={`max-w-[80%] ${message.isBot ? 'bg-gray-100' : 'bg-blue-600 text-white'} rounded-lg p-3`}>
                 <div className="flex items-start space-x-2">
                   {message.isBot && (
                     <Bot size={16} className="text-blue-600 mt-1 flex-shrink-0" />
