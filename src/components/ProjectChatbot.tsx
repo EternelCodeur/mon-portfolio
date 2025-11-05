@@ -24,13 +24,7 @@ const ProjectChatbot: React.FC<ProjectChatbotProps> = ({ isOpen, onClose }) => {
       id: 1,
       text: "Bonjour ! Je suis votre assistant projet. Je peux vous aider à définir vos besoins et vous orienter vers les meilleures solutions. Quel type de projet avez-vous en tête ?",
       isBot: true,
-      timestamp: new Date(),
-      suggestions: [
-        "Site web e-commerce",
-        "Application mobile",
-        "Audit sécurité",
-        "Design UI/UX"
-      ]
+      timestamp: new Date()
     }
   ]);
   const [inputMessage, setInputMessage] = useState('');
@@ -45,95 +39,7 @@ const ProjectChatbot: React.FC<ProjectChatbotProps> = ({ isOpen, onClose }) => {
     scrollToBottom();
   }, [messages]);
 
-  const getGreetingResponse = (message: string): string | null => {
-    const lowerMessage = message.toLowerCase();
-    const now = new Date();
-    const hour = now.getHours();
-    
-    if (lowerMessage.includes('bonjour') || lowerMessage.includes('salut') || lowerMessage.includes('hello')) {
-      if (hour < 12) {
-        return "Bonjour ! Ravi de vous rencontrer ce matin. Comment puis-je vous aider avec votre projet ?";
-      } else if (hour < 18) {
-        return "Bonjour ! J'espère que vous passez un bon après-midi. En quoi puis-je vous assister ?";
-      } else {
-        return "Bonsoir ! Merci de me contacter en cette soirée. Quel projet puis-je vous aider à réaliser ?";
-      }
-    }
-    
-    if (lowerMessage.includes('bonsoir')) {
-      return "Bonsoir ! Parfait timing pour discuter de votre projet. Comment puis-je vous aider ?";
-    }
-    
-    if (lowerMessage.includes('bonne nuit') || lowerMessage.includes('au revoir')) {
-      return "Au revoir ! N'hésitez pas à revenir quand vous voulez pour discuter de votre projet. Bonne soirée !";
-    }
-    
-    if (lowerMessage.includes('merci')) {
-      return "De rien ! Je suis là pour vous accompagner dans votre projet. Avez-vous d'autres questions ?";
-    }
-    
-    return null;
-  };
-
-  const getBotResponse = (userMessage: string): { text: string; suggestions?: string[] } => {
-    // Vérifier d'abord les salutations
-    const greetingResponse = getGreetingResponse(userMessage);
-    if (greetingResponse) {
-      return {
-        text: greetingResponse,
-        suggestions: ["Site web e-commerce", "Application mobile", "Audit sécurité", "Design UI/UX"]
-      };
-    }
-
-    const message = userMessage.toLowerCase();
-    const today = new Date().toLocaleDateString('fr-FR', { 
-      weekday: 'long', 
-      day: 'numeric', 
-      month: 'long' 
-    });
-    
-    if (message.includes('site') || message.includes('web')) {
-      return {
-        text: `Parfait ! Pour un site web, j'ai besoin de quelques détails. Nous pouvons programmer un rendez-vous dès ${today} pour en discuter. S'agit-il d'un site vitrine, e-commerce, ou d'une application web complexe ?`,
-        suggestions: ["Site vitrine", "E-commerce", "Application web", "Blog/Portfolio"]
-      };
-    } else if (message.includes('mobile') || message.includes('app')) {
-      return {
-        text: `Excellent choix ! Pour votre application mobile, nous pouvons planifier une première consultation ${today}. Voulez-vous cibler iOS, Android, ou les deux ?`,
-        suggestions: ["iOS seulement", "Android seulement", "Cross-platform", "Je ne sais pas"]
-      };
-    } else if (message.includes('sécurité') || message.includes('audit')) {
-      return {
-        text: `La cybersécurité est cruciale ! Nous proposons des rendez-vous d'audit dès ${today}. Quel type d'audit vous intéresse ?`,
-        suggestions: ["Pentest", "Audit RGPD", "Sécurisation", "Formation équipe"]
-      };
-    } else if (message.includes('design') || message.includes('ui') || message.includes('ux')) {
-      return {
-        text: `Le design est essentiel ! Nous pouvons organiser une session créative dès ${today}. Avez-vous besoin d'une refonte complète ou d'optimiser l'UX ?`,
-        suggestions: ["Nouvelle identité", "Refonte UX", "Design system", "Prototypage"]
-      };
-    } else if (message.includes('rendez-vous') || message.includes('rdv') || message.includes('rencontre')) {
-      return {
-        text: `Parfait ! Je peux vous proposer plusieurs créneaux disponibles dès ${today}. Préférez-vous un rendez-vous en présentiel ou en visioconférence ?`,
-        suggestions: ["Présentiel", "Visioconférence", "Voir le planning", "Demain matin"]
-      };
-    } else if (message.includes('budget') || message.includes('prix') || message.includes('coût')) {
-      return {
-        text: `Je comprends l'importance du budget. Pour vous donner une estimation précise lors de notre rendez-vous ${today}, pouvez-vous me parler de l'envergure de votre projet ?`,
-        suggestions: ["Projet simple", "Projet moyen", "Projet complexe", "Demander un devis"]
-      };
-    } else if (message.includes('délai') || message.includes('temps') || message.includes('rapidement')) {
-      return {
-        text: `Concernant les délais, nous pouvons en discuter lors d'un rendez-vous dès ${today}. Un site vitrine prend 2-4 semaines, une app mobile 2-4 mois. Quel est votre délai idéal ?`,
-        suggestions: ["Urgent (1 mois)", "Standard (2-3 mois)", "Flexible", "Planifier RDV"]
-      };
-    } else {
-      return {
-        text: `Merci pour ces informations ! Basé sur notre discussion, je peux organiser un rendez-vous dès ${today} pour approfondir votre projet. Souhaitez-vous que je vous aide à choisir le service le plus adapté ?`,
-        suggestions: ["Planifier RDV", "Voir nos services", "Autre question", "Demander un devis"]
-      };
-    }
-  };
+  
 
   const handleSendMessage = async () => {
     if (!inputMessage.trim()) return;
@@ -149,20 +55,48 @@ const ProjectChatbot: React.FC<ProjectChatbotProps> = ({ isOpen, onClose }) => {
     setInputMessage('');
     setIsTyping(true);
 
-    // Simuler un délai de réponse
-    setTimeout(() => {
-      const botResponse = getBotResponse(inputMessage);
-      const botMessage: Message = {
-        id: Date.now() + 1,
-        text: botResponse.text,
-        isBot: true,
-        timestamp: new Date(),
-        suggestions: botResponse.suggestions
-      };
+    const botId = Date.now() + 1;
+    try {
+      // Ajouter un message bot placeholder qui sera rempli au fil du stream
+      setMessages(prev => [...prev, { id: botId, text: '', isBot: true, timestamp: new Date() }]);
 
-      setMessages(prev => [...prev, botMessage]);
+      const apiBase = import.meta.env?.VITE_API_BASE_URL ?? '';
+      const res = await fetch(`${apiBase}/api/chat`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          messages: [
+            ...messages.map(m => ({ role: m.isBot ? 'assistant' : 'user', content: m.text })),
+            { role: 'user', content: userMessage.text }
+          ],
+          stream: true
+        })
+      });
+
+      if (!res.ok || !res.body) {
+        throw new Error('no-stream');
+      }
+
+      const reader = res.body.getReader();
+      const decoder = new TextDecoder();
+      let done = false;
+      while (!done) {
+        const { value, done: doneReading } = await reader.read();
+        done = doneReading;
+        if (value) {
+          const chunkText = decoder.decode(value, { stream: true });
+          if (chunkText) {
+            setMessages(prev => prev.map(m => (m.id === botId ? { ...m, text: m.text + chunkText } : m)));
+          }
+        }
+      }
+    } catch (err) {
+      // Fallback: afficher une erreur simple sans réponses prédéfinies
+      const errorText = "Désolé, le service IA est momentanément indisponible. Réessaie plus tard.";
+      setMessages(prev => prev.map(m => (m.id === botId ? { ...m, text: errorText } : m)));
+    } finally {
       setIsTyping(false);
-    }, 1500);
+    }
   };
 
   const handleSuggestionClick = (suggestion: string) => {
@@ -226,20 +160,7 @@ const ProjectChatbot: React.FC<ProjectChatbotProps> = ({ isOpen, onClose }) => {
                   )}
                   <div className="flex-1">
                     <p className="text-sm">{message.text}</p>
-                    {message.suggestions && (
-                      <div className="mt-3 space-y-1">
-                        {message.suggestions.map((suggestion, index) => (
-                          <button
-                            key={index}
-                            onClick={() => handleSuggestionClick(suggestion)}
-                            className="block w-full text-left text-xs bg-white text-blue-600 px-2 py-1 rounded hover:bg-blue-50 transition-colors"
-                            data-modal-content
-                          >
-                            {suggestion}
-                          </button>
-                        ))}
-                      </div>
-                    )}
+                    
                   </div>
                   {!message.isBot && (
                     <User size={16} className="text-white mt-1 flex-shrink-0" />
