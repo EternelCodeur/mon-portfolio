@@ -70,7 +70,7 @@ const About = () => {
             </div>
 
             <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-200">
-              <h3 className="text-2xl font-bold text-black mb-4">Ma Philosophy</h3>
+              <h3 className="text-2xl font-bold text-black mb-4">Ma Philosophie</h3>
               <p className="text-gray-700 leading-relaxed">
                 "Je ne code pas pour créer. Je code pour impacter." Chaque ligne de code a un but, 
                 chaque interface raconte une histoire, chaque solution résout un vrai problème.

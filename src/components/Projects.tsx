@@ -11,55 +11,63 @@ const Projects = () => {
     {
       id: 1,
       title: "Chat Training",
-      category: "Application Web", 
+      category: "Application Web & mobile", 
       description: "Application de Chat pour un Client",
-      longDescription: "Application avancée de cybersécurité offrant des outils de pentesting automatisés, analyse de vulnérabilités, et monitoring en temps réel. Interface développée avec React et Python backend.",
-      tech: ["React", "Python", "FastAPI", "PostgreSQL", "Docker"],
-      image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?w=800&h=600&fit=crop&auto=format",
-      github: "#",
-      demo: "#",
-      video: "https://www.w3schools.com/html/mov_bbb.mp4",
+      longDescription: "Chat Training est une application web interne de messagerie instantanée développée pour améliorer la communication et la collaboration au sein d’une entreprise. Elle permet aux employés d’échanger en temps réel via des messages privés ou de groupe, de partager des fichiers, et de recevoir des notifications instantanées grâce à Firebase Messaging. L’objectif principal du projet est de centraliser les échanges internes dans un environnement sécurisé, fluide et ergonomique. L’interface utilisateur, développée avec React, offre une expérience moderne et responsive, tandis que le backend en Laravel assure la gestion des utilisateurs, la sécurité des messages, et l’intégration avec la base de données MySQL. Le tout est soutenu par une architecture robuste facilitant l’évolutivité et la maintenance du système. Cette solution permet de remplacer les outils externes de chat par une plateforme personnalisée adaptée aux besoins spécifiques de l’entreprise, garantissant confidentialité, productivité et intégration complète avec les services internes.",
+      tech: ["PHP", "Laravel", "React", "TypeScript", "MySQL", "Firebase Messaging"],
+      image: "chat-training.png",
       status: "Production"
     },
     {
       id: 2,
-      title: "NeuroDesign AI",
-      category: "Intelligence Artificielle",
-      description: "Générateur de designs assisté par IA pour interfaces modernes",
-      longDescription: "Plateforme révolutionnaire utilisant des modèles de deep learning pour générer automatiquement des interfaces utilisateur optimisées selon les besoins métier.",
-      tech: ["Next.js", "TensorFlow.js", "OpenAI API", "Prisma", "Tailwind"],
-      image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?w=800&h=600&fit=crop&auto=format",
-      github: "#",
-      demo: "#",
-      video: "https://www.w3schools.com/html/mov_bbb.mp4",
-      status: "Beta"
-    },
-    {
-      id: 3,
-      title: "Quantum Dashboard",
-      category: "Data Visualization",
-      description: "Dashboard analytique temps réel avec visualisations 3D",
-      longDescription: "Interface de visualisation de données complexes avec rendu 3D, analyses prédictives et intégration multi-sources. Performances optimisées pour le Big Data.",
-      tech: ["Vue.js", "Three.js", "D3.js", "Node.js", "MongoDB"],
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=800&h=600&fit=crop&auto=format",
-      github: "#",
-      demo: "#",
-      video: "https://www.w3schools.com/html/mov_bbb.mp4",
+      title: "Archi Pointe",
+      category: "Application Web Multi Tenant",
+      description: "Système de gestion de pointage",
+      longDescription: "Cette application de gestion de pointage a été conçue pour automatiser et simplifier le suivi de la présence des employés au sein de l’entreprise. Elle permet d’enregistrer les heures d’arrivée et de départ, de calculer automatiquement le temps de travail journalier, hebdomadaire ou mensuel, et de générer des rapports détaillés pour le service des ressources humaines. Grâce à une interface intuitive développée avec React, les utilisateurs peuvent consulter leurs historiques de pointage en temps réel, tandis que le backend, propulsé par Laravel et MySQL, assure la fiabilité et la sécurité des données. L’application intègre également un système d’authentification sécurisé, des rôles utilisateurs (administrateurs, employés, superviseurs), ainsi qu’un tableau de bord dynamique pour le suivi global de l’assiduité. Cette solution contribue à réduire les erreurs manuelles, à améliorer la productivité et à offrir une visibilité claire sur la gestion du temps de travail au sein de l’entreprise.",
+      tech: ["PHP", "Laravel", "React", "TypeScript", "MySQL"],
+      image: "archi-pointe.png",
       status: "Production"
     },
     {
-      id: 4,
-      title: "BlockChain Explorer",
-      category: "Blockchain",
-      description: "Explorateur de transactions et analyseur de smart contracts",
-      longDescription: "Outil complet d'analyse blockchain permettant l'exploration de transactions, audit de smart contracts et visualisation des flux financiers décentralisés.",
-      tech: ["React", "Web3.js", "Solidity", "GraphQL", "TypeScript"],
-      image: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?w=800&h=600&fit=crop&auto=format",
-      github: "#",
-      demo: "#",
-      video: "https://www.w3schools.com/html/mov_bbb.mp4",
+      id: 3,
+      title: "Archi Drive",
+      category: "Application Web Multi Tenant",
+      description: "Système interne de partage et de gestion de documents",
+      longDescription: "Archi Drive est une application web interne conçue pour centraliser, gérer et partager les documents au sein d’une entreprise. Développée en architecture multitenant, elle permet à plusieurs entités d’utiliser la plateforme tout en garantissant la sécurité et l’isolation des données. L’application propose le téléchargement et la prévisualisation des fichiers, la gestion des versions, le partage sécurisé, et un système de rôles pour contrôler les autorisations. Son interface intuitive en React, combinée à un backend Laravel/MySQL, assure une expérience fluide et fiable. Archi Drive intègre également les notifications instantanées via Firebase et une API pour générer automatiquement des aperçus ou étiquettes visuelles, offrant une solution sécurisée et évolutive pour la gestion documentaire interne.",
+      tech: ["PHP", "Laravel", "React", "TypeScript", "MySQL","Firebase","AWS CLOUD","postgresql","Docker"],
+      image: "archi-drive.png",
       status: "Développement"
-    }
+    },
+    {
+      id: 4,
+      title: "Archi Docx",
+      category: "Application Web Multi Tenant",
+      description: "Système d'Archivage Electronique et Gestion Electronique de Document ",
+      longDescription: "Archi Docx est une application web de Gestion Electronique de Documents (GED) et d’archivage électronique, conçue pour centraliser et sécuriser les documents en entreprise. Développée en architecture multitenant, elle permet le partage interne et externe, le versioning des fichiers, et offre un système de rôles pour contrôler les accès. L’interface React est moderne et responsive, le backend Laravel avec MySQL garantit fiabilité et performance, et une API Laravel permet la conversion de texte en image pour générer des aperçus ou badges visuels. Archi Docx facilite ainsi la collaboration et la gestion documentaire de manière sécurisée et évolutive.",
+      tech: ["PHP", "Laravel", "React", "TypeScript", "MySQL","Firebase","AWS CLOUD","postgresql","Docker"],
+      image: "archi-docx.png",
+      status: "Développement"
+    },
+    {
+      id: 5,
+      title: "Inventaire",
+      category: "Application Web",
+      description: "Système de Gestion d'Inventaire ",
+      longDescription: "Inventaire est dédiée à la gestion et au suivi des inventaires d’archives. Elle permet de centraliser les informations sur les documents et supports archivés, de suivre leur disponibilité, et de faciliter la recherche et l’organisation des archives au sein de l’entreprise. Une solution efficace pour optimiser la gestion des documents et garantir leur traçabilité.",
+      tech: ["Node.js", "TypeScript", "React", "Supabase","PostgreSQL"],
+      image: "inventaire.png",
+      status: "Production"
+    },
+    {
+      id: 6,
+      title: "Archi Register",
+      category: "Application Web",
+      description: "Système de Suivi des Archives Physique",
+      longDescription: "Archi Register est dédiée à la gestion et au suivi des archives physiques. Elle permet de centraliser les informations sur les archives physiques, de suivre leur disponibilité, et de faciliter la recherche et l’organisation des archives au sein de l’entreprise. Une solution efficace pour optimiser la gestion des documents et garantir leur traçabilité.",
+      tech: ["PHP", "Laravel", "React", "TypeScript", "MySQL"],
+      image: "archi-register.png",
+      status: "Production"
+    },
   ];
 
   const handleFullscreenToggle = () => {
@@ -161,30 +169,6 @@ const Projects = () => {
                     ))}
                   </div>
 
-                  {/* Action Buttons */}
-                  <div className="flex space-x-4">
-                    <motion.a
-                      href={project.github}
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="flex items-center space-x-2 bg-gray-800 text-white px-4 py-2 rounded-lg hover:bg-gray-700 transition-colors"
-                      data-modal-content
-                    >
-                      <Github size={16} />
-                      <span>Code</span>
-                    </motion.a>
-                    
-                    <motion.a
-                      href={project.demo}
-                      whileHover={{ scale: 1.05 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="flex items-center space-x-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white px-4 py-2 rounded-lg hover:from-blue-500 hover:to-purple-500 transition-all"
-                      data-modal-content
-                    >
-                      <ExternalLink size={16} />
-                      <span>Demo</span>
-                    </motion.a>
-                  </div>
                 </div>
               </div>
             </motion.div>
@@ -258,7 +242,7 @@ const Projects = () => {
                                 poster={project.image}
                                 data-modal-content
                               >
-                                <source src={project.video} type="video/mp4" />
+                                <source src={project.image} type="video/mp4" />
                                 Votre navigateur ne supporte pas la lecture vidéo.
                               </video>
                               <button
@@ -270,27 +254,6 @@ const Projects = () => {
                               </button>
                             </div>
                             
-                            <div className="flex space-x-4" data-modal-content>
-                              <motion.a
-                                href={project.github}
-                                whileHover={{ scale: 1.05 }}
-                                className="flex-1 bg-gray-800 text-white py-3 px-4 rounded-lg text-center hover:bg-gray-700 transition-colors flex items-center justify-center space-x-2"
-                                data-modal-content
-                              >
-                                <Github size={20} />
-                                <span>Voir le code</span>
-                              </motion.a>
-                              
-                              <motion.a
-                                href={project.demo}
-                                whileHover={{ scale: 1.05 }}
-                                className="flex-1 bg-gradient-to-r from-blue-600 to-purple-600 text-white py-3 px-4 rounded-lg text-center hover:from-blue-500 hover:to-purple-500 transition-all flex items-center justify-center space-x-2"
-                                data-modal-content
-                              >
-                                <ExternalLink size={20} />
-                                <span>Démo live</span>
-                              </motion.a>
-                            </div>
                           </div>
                         </div>
                       </div>
@@ -334,7 +297,7 @@ const Projects = () => {
                       onClick={(e) => e.stopPropagation()}
                       data-modal-content
                     >
-                      <source src={project.video} type="video/mp4" />
+                      <source src={project.image} type="video/mp4" />
                       Votre navigateur ne supporte pas la lecture vidéo.
                     </video>
                   </>
