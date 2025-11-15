@@ -9,11 +9,42 @@ const Contact = () => {
     subject: '',
     message: ''
   });
+  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    console.log('Form submitted:', formData);
-    // Handle form submission here
+    if (status === 'loading') return;
+    const { name, email, subject, message } = formData;
+    const missing = [name, email, subject, message].some((v) => !String(v || '').trim());
+    const emailOk = /^(?=.*@).+\..+$/i.test(email);
+    if (missing || !emailOk) {
+      setStatus('error');
+      return;
+    }
+    setStatus('loading');
+    try {
+      const apiBase = (import.meta.env?.VITE_API_BASE_URL as string | undefined)
+        ?? (typeof window !== 'undefined' && window.location?.port === '8080' ? 'http://localhost:3001' : '');
+      const res = await fetch(`${apiBase}/api/contact`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData)
+      });
+      if (!res.ok) {
+        try {
+          const data = await res.json();
+          throw new Error(data?.error || 'send-failed');
+        } catch (_) {
+          throw new Error('send-failed');
+        }
+      }
+      setStatus('success');
+      setFormData({ name: '', email: '', subject: '', message: '' });
+    } catch (_) {
+      setStatus('error');
+    } finally {
+      setTimeout(() => setStatus('idle'), 3000);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -175,12 +206,15 @@ const Contact = () => {
                   type="submit"
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-4 rounded-lg hover:from-blue-500 hover:to-purple-500 transition-all flex items-center justify-center space-x-2 font-semibold"
+                  className="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white py-4 rounded-lg hover:from-blue-500 hover:to-purple-500 transition-all flex items-center justify-center space-x-2 font-semibold disabled:opacity-60 disabled:cursor-not-allowed"
+                  disabled={status === 'loading'}
                 >
                   <Send size={20} />
-                  <span>Envoyer le message</span>
+                  <span>
+                    {status === 'loading' ? 'Envoi en cours…' : status === 'success' ? 'Message envoyé !' : status === 'error' ? 'Échec de l\'envoi' : 'Envoyer le message'}
+                  </span>
                 </motion.button>
-              </form>
+               </form>
             </div>
           </motion.div>
         </div>

@@ -9,6 +9,7 @@ const SkillsShowcase = () => {
       skills: [
         { name: 'React', level: 98, color: 'from-blue-500 to-blue-600' },
         { name: 'TypeScript', level: 80, color: 'from-yellow-500 to-orange-700' },
+        { name: 'Vite', level: 85, color: 'from-red-500 to-red-700' },
         { name: 'Angular', level: 70, color: 'from-gray-700 to-gray-800' },
         { name: 'Tailwind CSS', level: 95, color: 'from-cyan-500 to-teal-500' }
       ]
