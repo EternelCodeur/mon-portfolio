@@ -9,6 +9,7 @@ const SkillsShowcase = () => {
       skills: [
         { name: 'React', level: 98, color: 'from-blue-500 to-blue-600' },
         { name: 'TypeScript', level: 80, color: 'from-yellow-500 to-orange-700' },
+        { name: 'Vite', level: 85, color: 'from-red-500 to-red-700' },
         { name: 'Angular', level: 70, color: 'from-gray-700 to-gray-800' },
         { name: 'Tailwind CSS', level: 95, color: 'from-cyan-500 to-teal-500' }
       ]
@@ -17,8 +18,8 @@ const SkillsShowcase = () => {
       title: 'Backend',
       skills: [
         { name: 'Node.js', level: 50, color: 'from-green-500 to-green-600' },
-        { name: 'Python', level: 70, color: 'from-yellow-500 to-orange-500' },
-        { name: 'PHP', level:  98, color: 'from-gray-500 to-gray-600' },
+        { name: 'Python (Django)', level: 70, color: 'from-yellow-500 to-orange-500' },
+        { name: 'PHP (Laravel)', level:  98, color: 'from-gray-500 to-gray-600' },
         { name: 'PostgreSQL', level: 80, color: 'from-blue-700 to-blue-800' },
         { name: 'MySQL', level: 95, color: 'from-red-500 to-red-600' },
       ]
@@ -26,10 +27,42 @@ const SkillsShowcase = () => {
     {
       title: 'DevOps & Outils',
       skills: [
-        { name: 'Docker', level: 85, color: 'from-blue-500 to-blue-700' },
-        { name: 'AWS', level: 78, color: 'from-orange-500 to-orange-600' },
-        { name: 'Git', level: 93, color: 'from-red-500 to-red-600' },
-        { name: 'Kali Linux', level: 80, color: 'from-gray-600 to-gray-700' }
+        { name: 'Docker', level: 85, color: 'from-blue-500 to-orange-700' },
+        { name: 'AWS', level: 78, color: 'from-gray-500 to-orange-600' },
+        { name: 'Git', level: 93, color: 'from-red-500 to-blue-600' },
+        { name: 'Kali Linux', level: 80, color: 'from-orange-600 to-gray-700' },
+        { name: 'Winsurf', level: 80, color: 'from-red-600 to-gray-700' },
+        { name: 'VS Code', level: 80, color: 'from-green-600 to-gray-700' },
+        { name: 'Cursor', level: 80, color: 'from-blue-600 to-gray-700' },
+      ]
+    },
+    {
+      title: 'Base de données',
+      skills: [
+        { name: 'PostgreSQL', level: 80, color: 'from-green-700 to-blue-800' },
+        { name: 'MySQL', level: 90, color: 'from-red-500 to-orange-600' },
+        { name: 'MongoDB', level: 80, color: 'from-red-500 to-orange-500' },
+        { name: 'Firebase', level: 70, color: 'from-gray-700 to-green-800' },
+        { name: 'Supabase', level: 60, color: 'from-green-700 to-gray-800' }
+      ]
+    },
+    {
+      title: 'Mobile & API',
+      skills: [
+        { name: 'Flutter', level: 50, color: 'from-yellow-500 to-blue-800' },
+        { name: 'FastAPI', level: 60, color: 'from-gray-500 to-blue-600' },
+        { name: 'JWT', level: 90, color: 'from-green-500 to-blue-600' },
+        { name: 'OAUTH', level: 60, color: 'from-blue-500 to-orange-600' }
+
+      ]
+    }, 
+    {
+      title: 'Design',
+      skills: [
+        { name: 'Figma', level: 50, color: 'from-orange-500 to-blue-800' },
+        { name: 'Photoshop', level: 60, color: 'from-gray-500 to-yellow-600' },
+        { name: 'Canva', level: 90, color: 'from-green-500 to-blue-600' },
+        { name: 'Illustrator', level: 60, color: 'from-yellow-500 to-orange-600' }
       ]
     }
   ];
