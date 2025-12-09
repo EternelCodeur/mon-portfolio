@@ -68,6 +68,16 @@ const Projects = () => {
       image: "archi-register.png",
       status: "Production"
     },
+    {
+      id: 7,
+      title: "Okoumé Events",
+      category: "Application Web",
+      description: "Système de gestion des événements",
+      longDescription: "Okoumé Events est dédiée à la gestion et au suivi des événements. Elle permet de centraliser les informations sur les événements, de suivre leur disponibilité, et de faciliter la recherche et l’organisation des événements au sein de l’entreprise. Une solution efficace pour optimiser la gestion des événements et garantir leur traçabilité.",
+      tech: ["PHP", "Laravel", "React", "TypeScript", "MySQL"],
+      image: "okoume-events.png",
+      status: "Production"
+    },
   ];
 
   const handleFullscreenToggle = () => {
