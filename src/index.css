@@ -56,8 +56,7 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply bg-white text-black font-mono;
-    cursor: none;
+    @apply min-h-screen bg-gray-900 text-white font-mono overflow-x-hidden;
   }
 
   /* Hide default cursor globally but allow it on specific elements */
@@ -203,14 +202,14 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: hsl(0 0% 96%);
+  background: hsl(220 20% 20%);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, hsl(217 91% 60%), hsl(270 95% 75%));
+  background: linear-gradient(to bottom, hsl(180 100% 50%), hsl(300 100% 50%));
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(to bottom, hsl(217 91% 50%), hsl(270 95% 65%));
+  background: linear-gradient(to bottom, hsl(180 100% 40%), hsl(300 100% 40%));
 }

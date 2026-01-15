@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { ExternalLink, Github, Play, X, Maximize2 } from 'lucide-react';
+import WhiteGrid from './WhiteGrid';
 
 const Projects = () => {
   const [selectedProject, setSelectedProject] = useState<number | null>(null);
@@ -85,19 +86,20 @@ const Projects = () => {
   };
 
   return (
-    <section id="projects" className="min-h-screen py-0 px-4 relative bg-white">
-      <div className="max-w-7xl mx-auto">
+    <section id="projects" className="min-h-screen py-0 px-4 relative bg-black">
+      <WhiteGrid />
+      <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold text-black mb-6">
+          <h2 className="text-4xl font-bold text-white mb-6">
             MES CRÉATIONS
           </h2>
-          <div className="w-32 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mb-8"></div>
-          <p className="text-lg text-gray-700 max-w-3xl mx-auto">
+          <div className="w-32 h-1 bg-gradient-to-r from-white to-gray-400 mx-auto mb-8"></div>
+          <p className="text-lg text-gray-300 max-w-3xl mx-auto">
             Découvrez mes projets les plus innovants, alliant technologie de pointe et design futuriste
           </p>
         </motion.div>
@@ -111,7 +113,7 @@ const Projects = () => {
               transition={{ duration: 0.8, delay: index * 0.2 }}
               className="group relative"
             >
-              <div className="bg-white border border-gray-200 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105">
+              <div className="bg-gray-900 bg-opacity-80 backdrop-blur-sm border border-gray-700 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:scale-105">
                 {/* Project Image */}
                 <div className="relative h-48 overflow-hidden cursor-pointer" onClick={() => setSelectedProject(project.id)} data-modal-content>
                   <img 
@@ -123,9 +125,9 @@ const Projects = () => {
                   <div className="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-500/20"></div>
                   <div className="absolute top-4 right-4">
                     <span className={`px-3 py-1 rounded-full text-xs font-semibold ${
-                      project.status === 'Production' ? 'bg-green-100 text-green-800 border border-green-300' :
-                      project.status === 'Beta' ? 'bg-yellow-100 text-yellow-800 border border-yellow-300' :
-                      'bg-blue-100 text-blue-800 border border-blue-300'
+                      project.status === 'Production' ? 'bg-green-900 text-green-300 border border-green-700' :
+                      project.status === 'Beta' ? 'bg-yellow-900 text-yellow-300 border border-yellow-700' :
+                      'bg-blue-900 text-blue-300 border border-blue-700'
                     }`}>
                       {project.status}
                     </span>
@@ -154,16 +156,16 @@ const Projects = () => {
                 {/* Project Info */}
                 <div className="p-6">
                   <div className="flex items-center justify-between mb-3">
-                    <span className="text-blue-600 text-md font-semibold uppercase tracking-wider">
+                    <span className="text-blue-400 text-md font-semibold uppercase tracking-wider">
                       {project.category}
                     </span>
                   </div>
                   
-                  <h3 className="text-md font-bold text-black mb-3 group-hover:text-blue-600 transition-colors">
+                  <h3 className="text-md font-bold text-white mb-3 group-hover:text-blue-400 transition-colors">
                     {project.title}
                   </h3>
                   
-                  <p className="text-gray-600 text-sm mb-4 leading-relaxed">
+                  <p className="text-gray-400 text-sm mb-4 leading-relaxed">
                     {project.description}
                   </p>
 
@@ -172,7 +174,7 @@ const Projects = () => {
                     {project.tech.map((tech, techIndex) => (
                       <span
                         key={techIndex}
-                        className="px-3 py-1 bg-gray-100 text-blue-600 text-xs rounded-full border border-blue-200"
+                        className="px-3 py-1 bg-gray-800 text-blue-400 text-xs rounded-full border border-blue-600"
                       >
                         {tech}
                       </span>
@@ -200,7 +202,7 @@ const Projects = () => {
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 exit={{ scale: 0.8, opacity: 0 }}
-                className="bg-white border border-gray-200 rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
+                className="bg-gray-900 bg-opacity-90 backdrop-blur-sm border border-gray-700 rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto"
                 onClick={(e) => e.stopPropagation()}
                 data-modal-content
               >
@@ -211,10 +213,10 @@ const Projects = () => {
                   return (
                     <>
                       <div className="flex justify-between items-center p-6 border-b border-gray-200" data-modal-content>
-                        <h3 className="text-xl font-bold text-black">{project.title}</h3>
+                        <h3 className="text-xl font-bold text-white">{project.title}</h3>
                         <button
                           onClick={() => setSelectedProject(null)}
-                          className="text-gray-400 hover:text-black transition-colors"
+                          className="text-gray-400 hover:text-white transition-colors"
                           data-modal-content
                         >
                           <X size={24} />
@@ -225,17 +227,17 @@ const Projects = () => {
                         <div className="grid md:grid-cols-2 gap-8">
                           <div className="space-y-6" data-modal-content>
                             <div>
-                              <h4 className="text-md font-semibold text-black mb-3">Description complète</h4>
-                              <p className="text-gray-700 text-sm leading-relaxed">{project.longDescription}</p>
+                              <h4 className="text-md font-semibold text-white mb-3">Description complète</h4>
+                              <p className="text-gray-300 text-sm leading-relaxed">{project.longDescription}</p>
                             </div>
                             
                             <div>
-                              <h4 className="text-md font-semibold text-black mb-3">Technologies utilisées</h4>
+                              <h4 className="text-md font-semibold text-white mb-3">Technologies utilisées</h4>
                               <div className="flex flex-wrap gap-2 text-sm">
                                 {project.tech.map((tech, index) => (
                                   <span
                                     key={index}
-                                    className="px-3 py-1 bg-gray-100 text-blue-600 text-sm rounded-full border border-blue-200"
+                                    className="px-3 py-1 bg-gray-800 text-blue-400 text-sm rounded-full border border-blue-600"
                                   >
                                     {tech}
                                   </span>
