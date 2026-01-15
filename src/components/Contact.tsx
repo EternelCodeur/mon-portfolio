@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { Mail, Phone, MapPin, Send, Github, Linkedin } from 'lucide-react';
+import WhiteGrid from './WhiteGrid';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -66,19 +67,20 @@ const Contact = () => {
   ];
 
   return (
-    <section id="contact" className="min-h-screen py-10 bg-gray-50 overflow-x-hidden overflow-hidden">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl w-full">
+    <section id="contact" className="min-h-screen py-10 bg-black overflow-x-hidden overflow-hidden relative">
+      <WhiteGrid />
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 max-w-7xl w-full relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold text-black mb-6">
+          <h2 className="text-4xl font-bold text-white mb-6">
             CONTACTEZ-MOI
           </h2>
-          <div className="w-32 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mb-8"></div>
-          <p className="text-lg text-gray-700 max-w-3xl mx-auto">
+          <div className="w-32 h-1 bg-gradient-to-r from-white to-gray-400 mx-auto mb-8"></div>
+          <p className="text-lg text-gray-300 max-w-3xl mx-auto">
             Prêt à donner vie à votre projet ? Discutons de vos besoins et créons quelque chose d'exceptionnel ensemble.
           </p>
         </motion.div>
@@ -90,15 +92,15 @@ const Contact = () => {
             transition={{ duration: 1 }}
             className="space-y-8 min-w-0 overflow-x-clip w-full"
           >
-            <div className="bg-white w-full max-w-full p-6 md:p-8 rounded-xl shadow-lg border border-gray-200 overflow-hidden box-border">
-              <h3 className="text-xl font-bold text-black mb-6">Informations de contact</h3>
+            <div className="bg-gray-900 bg-opacity-80 backdrop-blur-sm w-full max-w-full p-6 md:p-8 rounded-xl shadow-lg border border-gray-700 overflow-hidden box-border">
+              <h3 className="text-xl font-bold text-white mb-6">Informations de contact</h3>
               
               <div className="space-y-6">
                 {contactInfo.map((info, index) => (
                   <motion.a
                     key={info.label}
                     href={info.href}
-                    className="flex items-center space-x-4 p-2 rounded-lg hover:bg-gray-50 transition-colors group"
+                    className="flex items-center space-x-4 p-2 rounded-lg hover:bg-gray-800 transition-colors group"
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{ delay: index * 0.1 }}
@@ -107,16 +109,16 @@ const Contact = () => {
                       <info.icon size={16} className="text-white" />
                     </div>
                     <div>
-                      <p className="font-semibold text-gray-800">{info.label}</p>
-                      <p className="text-gray-600 break-words">{info.value}</p>
+                      <p className="font-semibold text-gray-200">{info.label}</p>
+                      <p className="text-gray-400 break-words">{info.value}</p>
                     </div>
                   </motion.a>
                 ))}
               </div>
             </div>
 
-            <div className="bg-white w-full max-w-full p-6 md:p-8 rounded-xl shadow-lg border border-gray-200 box-border">
-              <h3 className="text-xl font-bold text-black mb-6">Suivez-moi</h3>
+            <div className="bg-gray-900 bg-opacity-80 backdrop-blur-sm w-full max-w-full p-6 md:p-8 rounded-xl shadow-lg border border-gray-700 box-border">
+              <h3 className="text-xl font-bold text-white mb-6">Suivez-moi</h3>
               <div className="flex flex-wrap gap-4">
                 {socialLinks.map((social, index) => (
                   <motion.a
@@ -141,13 +143,13 @@ const Contact = () => {
             transition={{ duration: 1 }}
             className="min-w-0 overflow-x-clip w-full"
           >
-            <div className="bg-white w-full max-w-full p-6 md:p-8 rounded-xl shadow-lg border border-gray-200 overflow-hidden box-border">
-              <h3 className="text-xl font-bold text-black mb-6">Envoyez-moi un message</h3>
+            <div className="bg-gray-900 bg-opacity-80 backdrop-blur-sm w-full max-w-full p-6 md:p-8 rounded-xl shadow-lg border border-gray-700 overflow-hidden box-border">
+              <h3 className="text-xl font-bold text-white mb-6">Envoyez-moi un message</h3>
               
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid md:grid-cols-2 gap-6">
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label className="block text-sm font-semibold text-gray-300 mb-2">
                       Nom complet
                     </label>
                     <input
@@ -155,12 +157,12 @@ const Contact = () => {
                       name="name"
                       value={formData.name}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                      className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg focus:ring-2 focus:ring-white focus:border-transparent transition-colors text-white placeholder-gray-400"
                       required
                     />
                   </div>
                   <div>
-                    <label className="block text-sm font-semibold text-gray-700 mb-2">
+                    <label className="block text-sm font-semibold text-gray-300 mb-2">
                       Email
                     </label>
                     <input
@@ -168,7 +170,7 @@ const Contact = () => {
                       name="email"
                       value={formData.email}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors"
+                      className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg focus:ring-2 focus:ring-white focus:border-transparent transition-colors text-white placeholder-gray-400"
                       required
                     />
                   </div>
@@ -197,7 +199,7 @@ const Contact = () => {
                     value={formData.message}
                     onChange={handleChange}
                     rows={6}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors resize-none"
+                    className="w-full px-4 py-3 bg-gray-800 border border-gray-600 rounded-lg focus:ring-2 focus:ring-white focus:border-transparent transition-colors resize-none text-white placeholder-gray-400"
                     required
                   ></textarea>
                 </div>

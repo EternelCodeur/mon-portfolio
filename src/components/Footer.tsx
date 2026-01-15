@@ -54,7 +54,7 @@ const Footer = () => {
               <span>© {currentYear} Ronn.J - L'ÉTERNEL CODEUR. Tous droits réservés.</span>
             </div>
             <div className="text-slate-400 text-sm">
-              <span>Version 1.0 - Propulsé par la passion du code</span>
+              <span>Version 2.0 - Propulsé par la passion du code</span>
             </div>
           </div>
         </motion.div>

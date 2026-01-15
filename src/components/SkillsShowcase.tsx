@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { motion } from 'framer-motion';
+import WhiteGrid from './WhiteGrid';
 
 const SkillsShowcase = () => {
   const skillCategories = [
@@ -68,19 +69,20 @@ const SkillsShowcase = () => {
   ];
 
   return (
-    <section className="py-20 bg-white">
-      <div className="max-w-7xl mx-auto px-4">
+    <section className="py-20 bg-black relative overflow-hidden">
+      <WhiteGrid />
+      <div className="max-w-7xl mx-auto px-4 relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 1 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold text-black mb-4">
+          <h2 className="text-4xl font-bold text-white mb-4">
             Expertise Technique
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-blue-500 to-purple-600 mx-auto mb-6"></div>
-          <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+          <div className="w-24 h-1 bg-gradient-to-r from-white to-gray-400 mx-auto mb-6"></div>
+          <p className="text-lg text-gray-300 max-w-3xl mx-auto">
             Maîtrise complète des technologies modernes pour créer des solutions innovantes
           </p>
         </motion.div>
@@ -92,9 +94,9 @@ const SkillsShowcase = () => {
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: categoryIndex * 0.2 }}
-              className="bg-gray-50 rounded-xl p-8 hover:shadow-lg transition-shadow"
+              className="bg-gray-900 bg-opacity-80 backdrop-blur-sm border border-gray-700 rounded-xl p-8 hover:shadow-2xl transition-shadow"
             >
-              <h3 className="text-xl font-bold text-gray-800 mb-8 text-center">
+              <h3 className="text-xl font-bold text-white mb-8 text-center">
                 {category.title}
               </h3>
               
@@ -108,15 +110,15 @@ const SkillsShowcase = () => {
                     className="group"
                   >
                     <div className="flex justify-between items-center mb-2">
-                      <span className="font-semibold text-gray-800 group-hover:text-blue-600 transition-colors">
+                      <span className="font-semibold text-white group-hover:text-gray-300 transition-colors">
                         {skill.name}
                       </span>
-                      <span className="text-sm text-gray-600 font-medium">
+                      <span className="text-sm text-gray-400 font-medium">
                         {skill.level}%
                       </span>
                     </div>
                     
-                    <div className="h-3 bg-gray-200 rounded-full overflow-hidden">
+                    <div className="h-3 bg-gray-700 rounded-full overflow-hidden">
                       <motion.div
                         className={`h-full bg-gradient-to-r ${skill.color} rounded-full relative`}
                         initial={{ width: 0 }}
@@ -124,7 +126,7 @@ const SkillsShowcase = () => {
                         transition={{ duration: 1.5, delay: skillIndex * 0.1 }}
                       >
                         <motion.div
-                          className="absolute inset-0 bg-white opacity-30 rounded-full"
+                          className="absolute inset-0 bg-white opacity-20 rounded-full"
                           animate={{
                             x: ['-100%', '100%']
                           }}
