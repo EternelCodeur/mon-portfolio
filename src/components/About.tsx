@@ -60,7 +60,7 @@ const About = () => {
             transition={{ duration: 1, delay: 0.3 }}
             className="space-y-8"
           >
-            <div className="bg-gray-900 bg-opacity-80 backdrop-blur-sm p-4 md:p-6 rounded-xl shadow-lg border border-gray-700 card-shadow">
+            <div className="bg-gray-900 bg-opacity-60 backdrop-blur-sm p-4 md:p-6 rounded-lg shadow-md border border-gray-700 card-shadow">
               <h3 className="text-xl md:text-2xl font-bold text-white mb-4 text-readable">Mon Parcours</h3>
               <p className="text-gray-300 leading-relaxed text-readable text-responsive">
                 Plus de 3 ans d'expérience dans le développement full-stack et la sécurité informatique. 
@@ -69,7 +69,7 @@ const About = () => {
               </p>
             </div>
 
-            <div className="bg-gray-900 bg-opacity-80 backdrop-blur-sm p-4 md:p-6 rounded-xl shadow-lg border border-gray-700 card-shadow">
+            <div className="bg-gray-900 bg-opacity-60 backdrop-blur-sm p-4 md:p-6 rounded-lg shadow-md border border-gray-700 card-shadow">
               <h3 className="text-xl md:text-2xl font-bold text-white mb-4 text-readable">Ma Philosophie</h3>
               <p className="text-gray-300 leading-relaxed text-readable text-responsive">
                 "Je ne code pas pour créer. Je code pour impacter." Chaque ligne de code a un but, 
@@ -86,10 +86,10 @@ const About = () => {
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
-              className="bg-gray-900 bg-opacity-80 backdrop-blur-sm p-4 md:p-6 rounded-xl shadow-lg border border-gray-700 hover:shadow-xl transition-shadow group card-shadow"
+              className="bg-gray-900 bg-opacity-60 backdrop-blur-sm p-4 md:p-6 rounded-lg shadow-md border border-gray-700 hover:shadow-lg transition-all duration-500 group card-shadow"
             >
               <div className="mb-4">
-                <skill.icon size={40} className="text-white group-hover:text-gray-300 transition-colors" />
+                <skill.icon size={36} className="text-white group-hover:text-gray-200 transition-colors duration-500" />
               </div>
               <h3 className="text-lg md:text-xl font-bold text-white mb-3 text-readable">{skill.title}</h3>
               <p className="text-gray-400 text-readable text-responsive">{skill.desc}</p>

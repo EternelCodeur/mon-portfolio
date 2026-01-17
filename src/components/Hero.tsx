@@ -63,11 +63,11 @@ const Hero = () => {
           ].map((item, index) => (
             <motion.div
               key={item.label}
-              className={`relative w-32 md:w-40 flex flex-col items-center p-4 md:p-6 bg-gray-900 bg-opacity-80 backdrop-blur-sm rounded-xl shadow-lg border border-gray-700 hover:shadow-2xl transition-all duration-300 card-shadow ${item.color} group`}
+              className={`relative w-32 md:w-40 flex flex-col items-center p-4 md:p-6 bg-gray-900 bg-opacity-60 backdrop-blur-sm rounded-lg shadow-md border border-gray-700 hover:shadow-lg transition-all duration-500 ${item.color} group`}
               whileHover={{ 
-                scale: 1.1, 
-                y: -10,
-                boxShadow: "0 20px 40px rgba(0,0,0,0.1)"
+                scale: 1.05, 
+                y: -5,
+                boxShadow: "0 10px 20px rgba(0,0,0,0.2)"
               }}
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
@@ -82,9 +82,9 @@ const Hero = () => {
                 whileHover={{ rotate: 360 }}
                 transition={{ duration: 0.8 }}
               >
-                <item.icon size={40} className="text-white group-hover:text-gray-300 transition-colors" />
+                <item.icon size={36} className="text-white group-hover:text-gray-200 transition-colors duration-500" />
               </motion.div>
-              <span className="font-semibold text-white group-hover:text-gray-300 transition-colors text-readable text-sm md:text-base">{item.label}</span>
+              <span className="font-semibold text-white group-hover:text-gray-200 transition-colors duration-500 text-readable text-sm md:text-base">{item.label}</span>
             </motion.div>
           ))}
         </motion.div>
@@ -95,9 +95,9 @@ const Hero = () => {
           transition={{ duration: 1, delay: 2.8 }}
         >
           <motion.button 
-            className="bg-gradient-to-r from-gray-700 to-gray-900 hover:from-gray-800 hover:to-black text-white px-6 md:px-8 py-3 md:py-4 rounded-full text-base md:text-lg font-semibold shadow-lg hover:shadow-xl transform transition-all duration-300 relative overflow-hidden group card-shadow"
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+            className="bg-gradient-to-r from-gray-700 to-gray-900 hover:from-gray-800 hover:to-black text-white px-6 md:px-8 py-3 md:py-4 rounded-full text-base md:text-lg font-semibold shadow-md hover:shadow-lg transform transition-all duration-500 relative overflow-hidden group"
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
           >
             {/* Animated background effect */}
             <motion.div

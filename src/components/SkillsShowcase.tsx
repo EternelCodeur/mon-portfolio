@@ -94,7 +94,7 @@ const SkillsShowcase = () => {
               initial={{ opacity: 0, x: -50 }}
               whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: categoryIndex * 0.2 }}
-              className="bg-gray-900 bg-opacity-80 backdrop-blur-sm border border-gray-700 rounded-xl p-4 md:p-8 hover:shadow-2xl transition-shadow card-shadow"
+              className="bg-gray-900 bg-opacity-60 backdrop-blur-sm border border-gray-700 rounded-lg p-4 md:p-8 hover:shadow-lg transition-all duration-500 card-shadow"
             >
               <h3 className="text-lg md:text-xl font-bold text-white mb-6 md:mb-8 text-readable text-center">
                 {category.title}
@@ -110,7 +110,7 @@ const SkillsShowcase = () => {
                     className="group"
                   >
                     <div className="flex justify-between items-center mb-2">
-                      <span className="font-semibold text-white group-hover:text-gray-300 transition-colors text-readable">
+                      <span className="font-semibold text-white group-hover:text-gray-200 transition-colors duration-500 text-readable">
                         {skill.name}
                       </span>
                       <span className="text-sm text-gray-400 font-medium text-readable">
