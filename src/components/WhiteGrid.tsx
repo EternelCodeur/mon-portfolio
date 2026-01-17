@@ -24,11 +24,11 @@ const WhiteGrid = () => {
     const drawGrid = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
-      const gridSize = 30;
-      const lineWidth = 0.5;
+      const gridSize = 40;
+      const lineWidth = 1;
       
-      // Dessiner les lignes de la grille
-      ctx.strokeStyle = 'rgba(255, 255, 255, 0.1)';
+      // Dessiner les lignes de la grille en gris clair
+      ctx.strokeStyle = 'rgba(156, 163, 175, 0.3)';
       ctx.lineWidth = lineWidth;
       
       // Lignes verticales
@@ -47,26 +47,23 @@ const WhiteGrid = () => {
         ctx.stroke();
       }
       
-      // Ajouter des points clignotants aux intersections
+      // Ajouter des carrés gris aux intersections avec animation subtile
       for (let x = 0; x <= canvas.width; x += gridSize) {
         for (let y = 0; y <= canvas.height; y += gridSize) {
-          const flickerIntensity = Math.sin(time * 0.002 + x * 0.01 + y * 0.01) * 0.5 + 0.5;
-          const randomFlicker = Math.random() > 0.98 ? 1 : 0;
-          const intensity = flickerIntensity * 0.8 + randomFlicker * 0.2;
+          const pulseIntensity = Math.sin(time * 0.001 + x * 0.005 + y * 0.005) * 0.3 + 0.7;
+          const randomOpacity = Math.random() > 0.95 ? 0.8 : 0.4;
+          const finalOpacity = pulseIntensity * 0.6 + randomOpacity * 0.2;
           
-          if (intensity > 0.3) {
-            ctx.beginPath();
-            ctx.arc(x, y, 1.5, 0, Math.PI * 2);
-            ctx.fillStyle = `rgba(255, 255, 255, ${intensity})`;
-            ctx.fill();
-            
-            // Ajouter un effet de lueur
-            if (intensity > 0.7) {
-              ctx.beginPath();
-              ctx.arc(x, y, 4, 0, Math.PI * 2);
-              ctx.fillStyle = `rgba(255, 255, 255, ${intensity * 0.1})`;
-              ctx.fill();
-            }
+          // Carré principal
+          const squareSize = 4;
+          ctx.fillStyle = `rgba(107, 114, 128, ${finalOpacity})`;
+          ctx.fillRect(x - squareSize/2, y - squareSize/2, squareSize, squareSize);
+          
+          // Effet de lueur subtile pour les carrés plus visibles
+          if (finalOpacity > 0.6) {
+            const glowSize = 8;
+            ctx.fillStyle = `rgba(156, 163, 175, ${finalOpacity * 0.2})`;
+            ctx.fillRect(x - glowSize/2, y - glowSize/2, glowSize, glowSize);
           }
         }
       }
@@ -87,7 +84,7 @@ const WhiteGrid = () => {
     <canvas
       ref={canvasRef}
       className="absolute inset-0 w-full h-full"
-      style={{ background: 'black' }}
+      style={{ background: 'linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #e2e8f0 100%)' }}
     />
   );
 };

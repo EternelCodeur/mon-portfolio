@@ -26,7 +26,7 @@ const Index = () => {
   }, []);
 
   return (
-    <div className="min-h-screen bg-white text-black font-mono overflow-x-hidden">
+    <div className="min-h-screen bg-gradient-to-br from-slate-50 via-gray-50 to-slate-100 text-gray-900 font-sans overflow-x-hidden">
       <CustomCursor />
       <Navigation />
       
