@@ -24,11 +24,11 @@ const About = () => {
           transition={{ duration: 1 }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl font-bold text-gray-900 mb-3">
+          <h2 className="text-3xl md:text-4xl font-bold text-white mb-3 text-readable">
             QUI SUIS-JE ?
           </h2>
-          <div className="w-32 h-1 bg-gradient-to-r from-gray-700 to-gray-900 mx-auto mb-8"></div>
-          <p className="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed">
+          <div className="w-24 md:w-32 h-1 bg-gradient-to-r from-cyan-400 to-blue-500 mx-auto mb-6 md:mb-8"></div>
+          <p className="text-base md:text-lg text-gray-300 max-w-4xl mx-auto leading-relaxed text-readable text-responsive">
             Passionné par l'innovation technologique, je transforme vos idées en solutions digitales performantes. 
             Mon approche allie expertise technique et vision créative pour créer des expériences utilisateur exceptionnelles.
           </p>
@@ -60,18 +60,18 @@ const About = () => {
             transition={{ duration: 1, delay: 0.3 }}
             className="space-y-8"
           >
-            <div className="bg-white bg-opacity-90 backdrop-blur-sm p-6 rounded-xl shadow-lg border border-gray-200">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Mon Parcours</h3>
-              <p className="text-gray-700 leading-relaxed">
+            <div className="bg-gray-900 bg-opacity-80 backdrop-blur-sm p-4 md:p-6 rounded-xl shadow-lg border border-gray-700 card-shadow">
+              <h3 className="text-xl md:text-2xl font-bold text-white mb-4 text-readable">Mon Parcours</h3>
+              <p className="text-gray-300 leading-relaxed text-readable text-responsive">
                 Plus de 3 ans d'expérience dans le développement full-stack et la sécurité informatique. 
                 J'ai accompagné des startups et entreprises dans leur transformation digitale, 
                 en créant des solutions robustes et sécurisées.
               </p>
             </div>
 
-            <div className="bg-white bg-opacity-90 backdrop-blur-sm p-6 rounded-xl shadow-lg border border-gray-200">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">Ma Philosophie</h3>
-              <p className="text-gray-700 leading-relaxed">
+            <div className="bg-gray-900 bg-opacity-80 backdrop-blur-sm p-4 md:p-6 rounded-xl shadow-lg border border-gray-700 card-shadow">
+              <h3 className="text-xl md:text-2xl font-bold text-white mb-4 text-readable">Ma Philosophie</h3>
+              <p className="text-gray-300 leading-relaxed text-readable text-responsive">
                 "Je ne code pas pour créer. Je code pour impacter." Chaque ligne de code a un but, 
                 chaque interface raconte une histoire, chaque solution résout un vrai problème.
               </p>
@@ -86,13 +86,13 @@ const About = () => {
               initial={{ opacity: 0, y: 50 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: index * 0.2 }}
-              className="bg-white bg-opacity-90 backdrop-blur-sm p-6 rounded-xl shadow-lg border border-gray-200 hover:shadow-xl transition-shadow group"
+              className="bg-gray-900 bg-opacity-80 backdrop-blur-sm p-4 md:p-6 rounded-xl shadow-lg border border-gray-700 hover:shadow-xl transition-shadow group card-shadow"
             >
               <div className="mb-4">
-                <skill.icon size={48} className="text-gray-700 group-hover:text-gray-900 transition-colors" />
+                <skill.icon size={40} className="text-white group-hover:text-gray-300 transition-colors" />
               </div>
-              <h3 className="text-xl font-bold text-gray-900 mb-3">{skill.title}</h3>
-              <p className="text-gray-600">{skill.desc}</p>
+              <h3 className="text-lg md:text-xl font-bold text-white mb-3 text-readable">{skill.title}</h3>
+              <p className="text-gray-400 text-readable text-responsive">{skill.desc}</p>
             </motion.div>
           ))}
         </div>

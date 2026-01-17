@@ -56,7 +56,11 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply min-h-screen bg-gray-50 text-gray-900 font-sans overflow-x-hidden;
+    @apply min-h-screen bg-gradient-to-br from-slate-50 via-gray-50 to-slate-100 text-gray-900 font-sans overflow-x-hidden;
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
   }
 
   /* Hide default cursor globally but allow it on specific elements */
@@ -194,6 +198,69 @@ All colors MUST be HSL.
 /* Smooth scrolling */
 html {
   scroll-behavior: smooth;
+}
+
+/* Dynamic contrast utilities */
+@layer utilities {
+  .text-adaptive {
+    @apply text-gray-900;
+  }
+  
+  .text-adaptive-on-dark {
+    @apply text-white;
+  }
+  
+  .text-adaptive-on-light {
+    @apply text-gray-900;
+  }
+  
+  .bg-adaptive {
+    @apply bg-white;
+  }
+  
+  .bg-adaptive-dark {
+    @apply bg-gray-900;
+  }
+  
+  .bg-adaptive-light {
+    @apply bg-gray-50;
+  }
+}
+
+/* Enhanced readability */
+.text-readable {
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+  line-height: 1.6;
+  letter-spacing: 0.01em;
+}
+
+/* Card shadows for better depth */
+.card-shadow {
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  transition: box-shadow 0.3s ease;
+}
+
+.card-shadow:hover {
+  box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Responsive text sizes */
+@media (max-width: 640px) {
+  .text-responsive {
+    font-size: 0.875rem;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .text-responsive {
+    font-size: 1rem;
+  }
+}
+
+@media (min-width: 1025px) {
+  .text-responsive {
+    font-size: 1.125rem;
+  }
 }
 
 /* Custom scrollbar */

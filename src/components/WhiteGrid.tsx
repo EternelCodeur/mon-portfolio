@@ -24,11 +24,13 @@ const WhiteGrid = () => {
     const drawGrid = () => {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
-      const gridSize = 40;
+      // Grid size responsive based on screen size
+      const baseGridSize = 50;
+      const gridSize = Math.max(baseGridSize, Math.min(80, window.innerWidth / 20));
       const lineWidth = 1;
       
-      // Dessiner les lignes de la grille en gris clair
-      ctx.strokeStyle = 'rgba(156, 163, 175, 0.3)';
+      // Dessiner les lignes de la grille en blanc
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.3)';
       ctx.lineWidth = lineWidth;
       
       // Lignes verticales
@@ -47,23 +49,37 @@ const WhiteGrid = () => {
         ctx.stroke();
       }
       
-      // Ajouter des carrés gris aux intersections avec animation subtile
+      // Carrés uniformes avec taille responsive (maintenus pour cohérence)
+      const squareSize = Math.max(6, Math.min(10, gridSize / 8));
+      
+      // Points blancs clignotants comme des étoiles aux intersections
       for (let x = 0; x <= canvas.width; x += gridSize) {
         for (let y = 0; y <= canvas.height; y += gridSize) {
-          const pulseIntensity = Math.sin(time * 0.001 + x * 0.005 + y * 0.005) * 0.3 + 0.7;
-          const randomOpacity = Math.random() > 0.95 ? 0.8 : 0.4;
-          const finalOpacity = pulseIntensity * 0.6 + randomOpacity * 0.2;
+          // Effet de clignotement d'étoile
+          const twinkleIntensity = Math.sin(time * 0.003 + x * 0.01 + y * 0.01) * 0.5 + 0.5;
+          const randomTwinkle = Math.random() > 0.98 ? 1 : 0;
+          const finalIntensity = twinkleIntensity * 0.8 + randomTwinkle * 0.2;
           
-          // Carré principal
-          const squareSize = 4;
-          ctx.fillStyle = `rgba(107, 114, 128, ${finalOpacity})`;
-          ctx.fillRect(x - squareSize/2, y - squareSize/2, squareSize, squareSize);
+          // Point/étoile principal
+          if (finalIntensity > 0.3) {
+            ctx.beginPath();
+            ctx.arc(x, y, 1.5, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(255, 255, 255, ${finalIntensity})`;
+            ctx.fill();
+            
+            // Effet de lueur d'étoile
+            if (finalIntensity > 0.7) {
+              ctx.beginPath();
+              ctx.arc(x, y, 4, 0, Math.PI * 2);
+              ctx.fillStyle = `rgba(255, 255, 255, ${finalIntensity * 0.1})`;
+              ctx.fill();
+            }
+          }
           
-          // Effet de lueur subtile pour les carrés plus visibles
-          if (finalOpacity > 0.6) {
-            const glowSize = 8;
-            ctx.fillStyle = `rgba(156, 163, 175, ${finalOpacity * 0.2})`;
-            ctx.fillRect(x - glowSize/2, y - glowSize/2, glowSize, glowSize);
+          // Carré uniforme (plus subtil pour ne pas perturber les étoiles)
+          if (finalIntensity > 0.4) {
+            ctx.fillStyle = `rgba(255, 255, 255, ${finalIntensity * 0.3})`;
+            ctx.fillRect(x - squareSize/2, y - squareSize/2, squareSize, squareSize);
           }
         }
       }
@@ -84,7 +100,7 @@ const WhiteGrid = () => {
     <canvas
       ref={canvasRef}
       className="absolute inset-0 w-full h-full"
-      style={{ background: 'linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #e2e8f0 100%)' }}
+      style={{ background: 'black' }}
     />
   );
 };
