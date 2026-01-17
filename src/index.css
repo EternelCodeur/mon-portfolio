@@ -9,25 +9,25 @@ All colors MUST be HSL.
 
 @layer base {
   :root {
-    --background: 0 0% 100%;
-    --foreground: 0 0% 0%;
+    --background: 0 0% 98%;
+    --foreground: 0 0% 15%;
 
     --card: 0 0% 100%;
-    --card-foreground: 0 0% 0%;
+    --card-foreground: 0 0% 15%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 0 0% 0%;
+    --popover-foreground: 0 0% 15%;
 
-    --primary: 217 91% 60%;
+    --primary: 217 91% 50%;
     --primary-foreground: 0 0% 100%;
 
-    --secondary: 270 95% 75%;
-    --secondary-foreground: 0 0% 0%;
+    --secondary: 210 40% 96%;
+    --secondary-foreground: 0 0% 15%;
 
-    --muted: 0 0% 96%;
+    --muted: 210 40% 96%;
     --muted-foreground: 0 0% 45%;
 
-    --accent: 217 91% 60%;
+    --accent: 217 91% 50%;
     --accent-foreground: 0 0% 100%;
 
     --destructive: 0 84.2% 60.2%;
@@ -35,18 +35,18 @@ All colors MUST be HSL.
 
     --border: 0 0% 90%;
     --input: 0 0% 90%;
-    --ring: 217 91% 60%;
+    --ring: 217 91% 50%;
 
     --radius: 0.5rem;
 
     --sidebar-background: 0 0% 98%;
-    --sidebar-foreground: 0 0% 0%;
-    --sidebar-primary: 217 91% 60%;
+    --sidebar-foreground: 0 0% 15%;
+    --sidebar-primary: 217 91% 50%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 0 0% 96%;
-    --sidebar-accent-foreground: 0 0% 0%;
+    --sidebar-accent: 210 40% 96%;
+    --sidebar-accent-foreground: 0 0% 15%;
     --sidebar-border: 0 0% 90%;
-    --sidebar-ring: 217 91% 60%;
+    --sidebar-ring: 217 91% 50%;
   }
 }
 
@@ -56,7 +56,7 @@ All colors MUST be HSL.
   }
 
   body {
-    @apply min-h-screen bg-gray-900 text-white font-mono overflow-x-hidden;
+    @apply min-h-screen bg-gray-50 text-gray-900 font-sans overflow-x-hidden;
   }
 
   /* Hide default cursor globally but allow it on specific elements */
@@ -202,14 +202,14 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-  background: hsl(220 20% 20%);
+  background: hsl(210 40% 96%);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(to bottom, hsl(180 100% 50%), hsl(300 100% 50%));
+  background: linear-gradient(to bottom, hsl(217 91% 50%), hsl(217 91% 40%));
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(to bottom, hsl(180 100% 40%), hsl(300 100% 40%));
+  background: linear-gradient(to bottom, hsl(217 91% 40%), hsl(217 91% 30%));
 }

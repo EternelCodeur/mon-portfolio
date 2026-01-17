@@ -18,7 +18,7 @@ const Hero = () => {
           className="mb-8 mt-8 md:mt-0"
         >
           <div className="glitch-wrapper">
-            <div className="glitch text-7xl md:text-8xl font-bold text-white mb-4" data-glitch="RONN.J">
+            <div className="glitch text-7xl md:text-8xl font-bold text-gray-900 mb-4" data-glitch="RONN.J">
               <TypingEffect text="RONN.J" speed={150} />
             </div>
           </div>
@@ -31,7 +31,7 @@ const Hero = () => {
           transition={{ duration: 1, delay: 1.3 }}
           className="mb-12"
         >
-          <h2 className="text-3xl md:text-3xl font-bold text-white mb-6">
+          <h2 className="text-3xl md:text-3xl font-bold text-gray-800 mb-6">
             <TypingEffect 
               text="Développeur Full Stack & Spécialiste IT" 
               speed={80}
@@ -41,11 +41,11 @@ const Hero = () => {
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ delay: 3 }}
-            className="text-lg text-gray-300 max-w-4xl mx-auto leading-relaxed"
+            className="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed"
           >
-            Je crée des expériences numériques exceptionnelles alliant <span className="text-cyan-400 font-semibold">technologie de pointe</span>, 
-            <span className="text-pink-400 font-semibold"> design innovant</span> et 
-            <span className="text-yellow-400 font-semibold"> performance optimale</span>
+            Je crée des expériences numériques exceptionnelles alliant <span className="text-blue-600 font-semibold">technologie de pointe</span>, 
+            <span className="text-indigo-600 font-semibold"> design innovant</span> et 
+            <span className="text-slate-700 font-semibold"> performance optimale</span>
           </motion.p>
         </motion.div>
 
@@ -57,13 +57,13 @@ const Hero = () => {
           className="flex flex-wrap justify-center gap-8 mb-12"
         >
           {[
-            { icon: Terminal, label: "DevOps", color: "text-white", bg: "from-white to-gray-400" },
-            { icon: Code, label: "Full Stack", color: "text-white", bg: "from-white to-gray-400" },
-            { icon: Zap, label: "Performance", color: "text-white", bg: "from-white to-gray-400" }
+            { icon: Terminal, label: "DevOps", color: "text-gray-700", bg: "from-gray-100 to-gray-300" },
+            { icon: Code, label: "Full Stack", color: "text-gray-700", bg: "from-gray-100 to-gray-300" },
+            { icon: Zap, label: "Performance", color: "text-gray-700", bg: "from-gray-100 to-gray-300" }
           ].map((item, index) => (
             <motion.div
               key={item.label}
-              className={`relative w-40 flex flex-col items-center p-6 bg-gray-800 bg-opacity-80 backdrop-blur-sm rounded-xl shadow-lg border border-gray-700 hover:shadow-2xl transition-all duration-300 ${item.color} group`}
+              className={`relative w-40 flex flex-col items-center p-6 bg-white bg-opacity-90 backdrop-blur-sm rounded-xl shadow-lg border border-gray-200 hover:shadow-2xl transition-all duration-300 ${item.color} group`}
               whileHover={{ 
                 scale: 1.1, 
                 y: -10,
@@ -82,9 +82,9 @@ const Hero = () => {
                 whileHover={{ rotate: 360 }}
                 transition={{ duration: 0.8 }}
               >
-                <item.icon size={48} className="text-black group-hover:text-gray-700 transition-colors" />
+                <item.icon size={48} className="text-gray-700 group-hover:text-gray-900 transition-colors" />
               </motion.div>
-              <span className="font-semibold text-white group-hover:text-gray-300 transition-colors">{item.label}</span>
+              <span className="font-semibold text-gray-800 group-hover:text-gray-900 transition-colors">{item.label}</span>
             </motion.div>
           ))}
         </motion.div>
@@ -95,13 +95,13 @@ const Hero = () => {
           transition={{ duration: 1, delay: 2.8 }}
         >
           <motion.button 
-            className="bg-gradient-to-r from-white to-gray-400 hover:from-gray-200 hover:to-gray-500 text-black px-8 py-4 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transform transition-all duration-300 relative overflow-hidden group"
+            className="bg-gradient-to-r from-gray-700 to-gray-900 hover:from-gray-800 hover:to-black text-white px-8 py-4 rounded-full text-lg font-semibold shadow-lg hover:shadow-xl transform transition-all duration-300 relative overflow-hidden group"
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
           >
             {/* Animated background effect */}
             <motion.div
-              className="absolute inset-0 bg-gradient-to-r from-gray-400 to-white opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+              className="absolute inset-0 bg-gradient-to-r from-gray-800 to-gray-700 opacity-0 group-hover:opacity-100 transition-opacity duration-300"
             />
             <span className="relative z-10">Découvrir Mon Univers</span>
           </motion.button>

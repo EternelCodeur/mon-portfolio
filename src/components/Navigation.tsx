@@ -27,11 +27,11 @@ const Navigation = () => {
       {/* Menu Button */}
       <motion.button
         onClick={() => setIsOpen(!isOpen)}
-        className="fixed top-6 right-6 z-[100] bg-gray-800 border-2 border-white rounded-full p-3 shadow-lg hover:shadow-xl transition-shadow"
+        className="fixed top-6 right-6 z-[100] bg-white border-2 border-gray-300 rounded-full p-3 shadow-lg hover:shadow-xl transition-shadow"
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
       >
-        {isOpen ? <X size={24} /> : <Menu size={24} />}
+        {isOpen ? <X size={24} className="text-gray-700" /> : <Menu size={24} className="text-gray-700" />}
       </motion.button>
 
       {/* Navigation Menu */}
@@ -41,7 +41,7 @@ const Navigation = () => {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             exit={{ opacity: 0, scale: 0.8 }}
-            className="fixed top-20 right-6 z-[90] bg-gray-800 border border-white rounded-xl shadow-2xl p-4 min-w-[200px]"
+            className="fixed top-20 right-6 z-[90] bg-white border border-gray-300 rounded-xl shadow-2xl p-4 min-w-[200px]"
             data-modal-content
           >
             <nav className="space-y-2">
@@ -49,14 +49,14 @@ const Navigation = () => {
                 <motion.button
                   key={item.label}
                   onClick={() => scrollToSection(item.href)}
-                  className="w-full flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-700 transition-colors text-left"
+                  className="w-full flex items-center space-x-3 px-4 py-3 rounded-lg hover:bg-gray-100 transition-colors text-left"
                   initial={{ opacity: 0, x: 20 }}
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: index * 0.1 }}
                   whileHover={{ x: 5 }}
                 >
-                  <item.icon size={20} className="text-white" />
-                  <span className="font-medium text-gray-200">{item.label}</span>
+                  <item.icon size={20} className="text-gray-700" />
+                  <span className="font-medium text-gray-800">{item.label}</span>
                 </motion.button>
               ))}
             </nav>
