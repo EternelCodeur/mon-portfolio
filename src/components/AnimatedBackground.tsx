@@ -10,9 +10,9 @@ interface AnimatedBackgroundProps extends HTMLAttributes<HTMLDivElement> {
 
 export const AnimatedBackground = ({ children, className = '', ...props }: AnimatedBackgroundProps) => {
   return (
-    <div className={`relative min-h-screen bg-gradient-to-br from-slate-50 via-gray-50 to-slate-100 ${className}`} {...props}>
-      {/* Light gradient overlay */}
-      <div className="absolute inset-0 bg-gradient-to-br from-blue-50 via-transparent to-indigo-50 opacity-60"></div>
+    <div className={`relative min-h-screen bg-black ${className}`} {...props}>
+      {/* Dark gradient overlay */}
+      <div className="absolute inset-0 bg-gradient-to-br from-gray-900 via-black to-gray-900 opacity-80"></div>
       
       {/* White grid background */}
       <WhiteGrid />

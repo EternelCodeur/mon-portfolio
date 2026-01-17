@@ -20,15 +20,27 @@ const WhiteGrid = () => {
 
     let animationId: number;
     let time = 0;
+    let lastFrameTime = 0;
+    const targetFPS = 30; // Réduit à 30 FPS pour plus de stabilité
+    const frameInterval = 1000 / targetFPS;
 
-    const drawGrid = () => {
+    const drawGrid = (currentTime: number) => {
+      // Limitation du FPS pour stabilité
+      if (currentTime - lastFrameTime < frameInterval) {
+        animationId = requestAnimationFrame(drawGrid);
+        return;
+      }
+      
+      lastFrameTime = currentTime;
       ctx.clearRect(0, 0, canvas.width, canvas.height);
       
-      const gridSize = 40;
+      // Grid size responsive based on screen size
+      const baseGridSize = 50;
+      const gridSize = Math.max(baseGridSize, Math.min(80, window.innerWidth / 20));
       const lineWidth = 1;
       
-      // Dessiner les lignes de la grille en gris clair
-      ctx.strokeStyle = 'rgba(156, 163, 175, 0.3)';
+      // Dessiner les lignes de la grille en blanc (plus stable)
+      ctx.strokeStyle = 'rgba(255, 255, 255, 0.15)';
       ctx.lineWidth = lineWidth;
       
       // Lignes verticales
@@ -47,32 +59,45 @@ const WhiteGrid = () => {
         ctx.stroke();
       }
       
-      // Ajouter des carrés gris aux intersections avec animation subtile
+      // Carrés uniformes avec taille responsive (plus stables)
+      const squareSize = Math.max(3, Math.min(6, gridSize / 12));
+      
+      // Points blancs clignotants comme des étoiles aux intersections (optimisé)
       for (let x = 0; x <= canvas.width; x += gridSize) {
         for (let y = 0; y <= canvas.height; y += gridSize) {
-          const pulseIntensity = Math.sin(time * 0.001 + x * 0.005 + y * 0.005) * 0.3 + 0.7;
-          const randomOpacity = Math.random() > 0.95 ? 0.8 : 0.4;
-          const finalOpacity = pulseIntensity * 0.6 + randomOpacity * 0.2;
+          // Effet de clignotement plus doux et stable
+          const twinkleIntensity = Math.sin(time * 0.0008 + x * 0.003 + y * 0.003) * 0.25 + 0.75;
+          const finalIntensity = twinkleIntensity * 0.5;
           
-          // Carré principal
-          const squareSize = 4;
-          ctx.fillStyle = `rgba(107, 114, 128, ${finalOpacity})`;
-          ctx.fillRect(x - squareSize/2, y - squareSize/2, squareSize, squareSize);
+          // Point/étoile principal (réduit pour stabilité)
+          if (finalIntensity > 0.45) {
+            ctx.beginPath();
+            ctx.arc(x, y, 0.8, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(255, 255, 255, ${finalIntensity * 0.7})`;
+            ctx.fill();
+            
+            // Effet de lueur d'étoile (plus subtil)
+            if (finalIntensity > 0.85) {
+              ctx.beginPath();
+              ctx.arc(x, y, 1.5, 0, Math.PI * 2);
+              ctx.fillStyle = `rgba(255, 255, 255, ${finalIntensity * 0.03})`;
+              ctx.fill();
+            }
+          }
           
-          // Effet de lueur subtile pour les carrés plus visibles
-          if (finalOpacity > 0.6) {
-            const glowSize = 8;
-            ctx.fillStyle = `rgba(156, 163, 175, ${finalOpacity * 0.2})`;
-            ctx.fillRect(x - glowSize/2, y - glowSize/2, glowSize, glowSize);
+          // Carré uniforme (plus subtil pour stabilité)
+          if (finalIntensity > 0.6) {
+            ctx.fillStyle = `rgba(255, 255, 255, ${finalIntensity * 0.1})`;
+            ctx.fillRect(x - squareSize/2, y - squareSize/2, squareSize, squareSize);
           }
         }
       }
       
-      time += 16;
+      time += 40; // Fréquence encore plus réduite pour stabilité
       animationId = requestAnimationFrame(drawGrid);
     };
 
-    drawGrid();
+    drawGrid(0);
 
     return () => {
       cancelAnimationFrame(animationId);
@@ -84,7 +109,7 @@ const WhiteGrid = () => {
     <canvas
       ref={canvasRef}
       className="absolute inset-0 w-full h-full"
-      style={{ background: 'linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #e2e8f0 100%)' }}
+      style={{ background: 'black' }}
     />
   );
 };
